@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark Premium Portfolio Theme */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 5% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 5% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 240 5% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 25%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 5% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 20%;
+    --input: 240 5% 20%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Accent colors for different sections */
+    --it-accent: 217 91% 60%;
+    --video-accent: 270 80% 65%;
+    --model-accent: 0 84% 60%;
+
+    /* Glow effects */
+    --it-glow: 217 91% 60% / 0.3;
+    --video-glow: 270 80% 65% / 0.3;
+    --model-glow: 0 84% 60% / 0.3;
+
+    /* Gradients */
+    --gradient-it: linear-gradient(135deg, hsl(217 91% 60% / 0.2), hsl(217 91% 60% / 0));
+    --gradient-video: linear-gradient(135deg, hsl(270 80% 65% / 0.2), hsl(270 80% 65% / 0));
+    --gradient-model: linear-gradient(135deg, hsl(0 84% 60% / 0.2), hsl(0 84% 60% / 0));
+
+    /* Shadows */
+    --shadow-glow-it: 0 0 30px hsl(217 91% 60% / 0.4);
+    --shadow-glow-video: 0 0 30px hsl(270 80% 65% / 0.4);
+    --shadow-glow-model: 0 0 30px hsl(0 84% 60% / 0.4);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  }
+}
