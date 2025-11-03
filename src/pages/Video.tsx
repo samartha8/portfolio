@@ -10,31 +10,31 @@ const Video = () => {
   const videos = [
     {
       title: "Gym Related Video",
-      src: "/videos/newOne.mov",
+      src: "/videos/newOne.mp4",
       thumbnail: "/thumbnails/pic1.png",
       orientation: "landscape",
     },
     {
       title: "College Event Vlog",
-      src: "/videos/sample.mov",
+      src: "/videos/sample.mp4",
       thumbnail: "/thumbnails/pic2.png",
       orientation: "landscape",
     },
     {
       title: "Scripting and Storyboarding Video",
-      src: "/videos/BatteryVideo.mov",
+      src: "/videos/BatteryVideo.mp4",
       thumbnail: "/thumbnails/pic3.png",
       orientation: "portrait",
     },
     {
       title: "Fashion Short Aesthetic Video",
-      src: "/videos/hoodie.mp4",
+      src: "/videos/hoodie-compressed.mp4",
       thumbnail: "/thumbnails/pic4.png",
       orientation: "portrait",
     },
     {
       title: "Announcement Video",
-      src: "/videos/event.mov",
+      src: "/videos/event.mp4",
       thumbnail: "/thumbnails/pic5.png",
       orientation: "portrait",
     },

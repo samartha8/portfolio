@@ -16,12 +16,12 @@ const Hobbies = () => {
   const videoRefs = useRef<HTMLVideoElement[]>([]);
 
   const singingVideos = [
-    { title: "Basanta (Cover)", src: "/videos/cover1.mov" },
-    { title: "Juni Vari Lai (Cover)", src: "/videos/cover2.mp4" },
-    { title: "Blue (Cover)", src: "/videos/cover4.mp4" },
-    { title: "Kalo Seto (Cover)", src: "/videos/cover33.mp4" },
+    { title: "Basanta (Cover)", src: "/videos/cover1-compressed.mp4" },
+    { title: "Juni Vari Lai (Cover)", src: "/videos/cover2-compressed.mp4" },
+    { title: "Blue (Cover)", src: "/videos/cover4-compressed.mp4" },
+    { title: "Kalo Seto (Cover)", src: "/videos/cover33-compressed.mp4" },
     // ✅ You can freely add more videos below — they'll auto-fit the layout.
-    // { title: "New Song (Cover)", src: "/videos/newCover.mp4" },
+    // { title: "New Song (Cover)", src: "/videos/newCover-compressed.mp4" },
   ];
 
   const creativePhotos = [
@@ -43,7 +43,10 @@ const Hobbies = () => {
         }));
       };
       if (video.readyState >= 1) updateOrientation();
-      else video.addEventListener("loadedmetadata", updateOrientation, { once: true });
+      else
+        video.addEventListener("loadedmetadata", updateOrientation, {
+          once: true,
+        });
     });
   }, [singingVideos.length]);
 

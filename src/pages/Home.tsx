@@ -19,7 +19,7 @@ const Home = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-it via-video to-model rounded-full blur-3xl opacity-30 animate-pulse" />
               <video
-                src="/videos/profileVideo.mp4"
+                src="/videos/profileVideo-compressed.mp4"
                 autoPlay
                 loop
                 muted

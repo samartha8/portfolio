@@ -10,31 +10,31 @@ const Model = () => {
   const portfolio = [
     {
       title: "Cinematic Reel",
-      videoSrc: "/videos/1st.mp4",
+      videoSrc: "/videos/1st-compressed.mp4",
       thumbnail: "/thumbnails/1.png",
       url: "https://www.instagram.com/reel/C_TCYw6hzWJ/",
     },
     {
       title: "Brand Collaboration",
-      videoSrc: "/videos/2nd.mp4",
+      videoSrc: "/videos/2nd-compressed.mp4",
       thumbnail: "/thumbnails/2.png",
       url: "https://www.instagram.com/p/DFnJyKlSM9-/",
     },
     {
       title: "Product Shoot",
-      videoSrc: "/videos/3rd.mov",
+      videoSrc: "/videos/3rd.mp4",
       thumbnail: "/thumbnails/3.png",
       url: "https://www.instagram.com/p/DOyMe8dDEwh/",
     },
     {
       title: "Festival Related Content",
-      videoSrc: "/videos/4th.mov",
+      videoSrc: "/videos/4th.mp4",
       thumbnail: "/thumbnails/4.png",
       url: "https://www.instagram.com/p/DOyMe8dDEwh/",
     },
     {
       title: "Style Outfit Reel",
-      videoSrc: "/videos/5th.mp4",
+      videoSrc: "/videos/5th-compressed.mp4",
       thumbnail: "/thumbnails/5.png",
       url: "https://www.instagram.com/reel/C0tlsExPA1q/",
     },
@@ -42,6 +42,7 @@ const Model = () => {
       title: "Scripting and Storyboarding",
       videoSrc: "/videos/6th.mov",
       thumbnail: "/thumbnails/6.png",
+      url: "https://www.instagram.com/p/DQeOw-rkhjc/",
     },
   ];
 
