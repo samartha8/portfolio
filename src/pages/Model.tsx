@@ -10,19 +10,19 @@ const Model = () => {
   const portfolio = [
     {
       title: "Cinematic Reel",
-      videoSrc: "/videos/1st-compressed.mp4",
+      videoSrc: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796903/1st_oezehl.mp4",
       thumbnail: "/thumbnails/1.png",
       url: "https://www.instagram.com/reel/C_TCYw6hzWJ/",
     },
     {
       title: "Brand Collaboration",
-      videoSrc: "/videos/2nd-compressed.mp4",
+      videoSrc: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796875/2nd_dxgkf1.mp4",
       thumbnail: "/thumbnails/2.png",
       url: "https://www.instagram.com/p/DFnJyKlSM9-/",
     },
     {
       title: "Product Shoot",
-      videoSrc: "/videos/3rd.mp4",
+      videoSrc: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796941/3rd_kkbfl3.mov",
       thumbnail: "/thumbnails/3.png",
       url: "https://www.instagram.com/p/DOyMe8dDEwh/",
     },
@@ -34,12 +34,12 @@ const Model = () => {
     },
     {
       title: "Style Outfit Reel",
-      videoSrc: "/videos/5th-compressed.mp4",
+      videoSrc: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796868/5th_kkbdzw.mp4",
       thumbnail: "/thumbnails/5.png",
       url: "https://www.instagram.com/reel/C0tlsExPA1q/",
     },
     {
-      title: "Scripting and Storyboarding",
+      title: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796932/6th_sosgvj.mov",
       videoSrc: "/videos/6th.mov",
       thumbnail: "/thumbnails/6.png",
       url: "https://www.instagram.com/p/DQeOw-rkhjc/",
