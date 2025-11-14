@@ -19,14 +19,14 @@ const Home = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-it via-video to-model rounded-full blur-3xl opacity-30 animate-pulse" />
               <video
-                src="/videos/profileVideo-compressed.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="relative w-80 h-80 rounded-full object-cover border-4 border-border shadow-2xl scale-200 -translate-y-4"
-                
-              />
+  src="https://res.cloudinary.com/du8xf30ei/video/upload/v1761796913/profileVideo_snii0b.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="relative w-80 h-80 rounded-full object-cover border-4 border-border shadow-2xl scale-200 -translate-y-4"
+/>
+
             </div>
           </motion.div>
 
