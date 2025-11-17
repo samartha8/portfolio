@@ -9,24 +9,25 @@ const Home = () => {
     <div className="min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Profile Image */}
+          
+          {/* Profile Video */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex justify-center"
           >
-            <div className="relative">
+            <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80">
               <div className="absolute inset-0 bg-gradient-to-r from-it via-video to-model rounded-full blur-3xl opacity-30 animate-pulse" />
-              <video
-  src="https://res.cloudinary.com/du8xf30ei/video/upload/v1761796913/profileVideo_snii0b.mp4"
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="relative w-80 h-80 rounded-full object-cover border-4 border-border shadow-2xl scale-200 -translate-y-4"
-/>
 
+              <video
+                src="https://res.cloudinary.com/du8xf30ei/video/upload/v1761796913/profileVideo_snii0b.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="relative w-full h-full rounded-full object-cover border-4 border-border shadow-2xl"
+              />
             </div>
           </motion.div>
 
@@ -46,6 +47,7 @@ const Home = () => {
               >
                 Hi, I'm
               </motion.p>
+
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
