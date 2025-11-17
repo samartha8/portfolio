@@ -23,7 +23,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  
+
   const {
     register,
     handleSubmit,
@@ -38,16 +38,16 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        "service_g5dv62m", // Replace with your EmailJS service ID
-        "template_9xzxb0o", // Replace with your EmailJS template ID
+        "service_g5dv62m",
+        "template_9xzxb0o",
         {
-          from_name: data.name,
-          from_email: data.email,
+          from_name: data.name,      // used in email header
+          reply_to: data.email,      // Gmail sees this & shows user email
           subject: data.subject,
           message: data.message,
-          to_email: "workwithsamartha@gmail.com",
+          to_email: "workwithsamartha@gmail.com"
         },
-        "dsUNF5gA9hQHqVBch" // Replace with your EmailJS public key
+        "dsUNF5gA9hQHqVBch"
       );
 
       toast({
@@ -87,7 +87,8 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
+
+          {/* Left Side Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -97,7 +98,7 @@ const Contact = () => {
             <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8">
               <h2 className="text-3xl font-heading font-bold mb-6">Get in Touch</h2>
               <p className="text-muted-foreground mb-8">
-                Whether you need IT development, video editing, or professional modeling services, 
+                Whether you need IT development, video editing, or professional modeling services,
                 I'm here to bring your vision to life.
               </p>
 
@@ -108,10 +109,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <a 
-                      href="mailto:contact@samarthashakya.com" 
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
+                    <a href="mailto:workwithsamartha@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
                       workwithsamartha@gmail.com
                     </a>
                   </div>
@@ -123,10 +121,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <a 
-                      href="tel:+1234567890" 
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
+                    <a href="tel:+9779843736234" className="text-muted-foreground hover:text-primary transition-colors">
                       +977 9843736234
                     </a>
                   </div>
@@ -138,15 +133,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Location</h3>
-                    <p className="text-muted-foreground">
-                      Available for remote & on-site projects
-                    </p>
+                    <p className="text-muted-foreground">Available for remote & on-site projects</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Quick Links */}
             <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8">
               <h3 className="text-xl font-heading font-bold mb-4">Services</h3>
               <ul className="space-y-3">
@@ -172,81 +164,42 @@ const Contact = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <form 
-              onSubmit={handleSubmit(onSubmit)}
-              className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-6"
-            >
+            <form onSubmit={handleSubmit(onSubmit)} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-6">
+
               <div className="space-y-2">
                 <Label htmlFor="name">Name *</Label>
-                <Input
-                  id="name"
-                  placeholder="Your name"
-                  {...register("name")}
-                  className={errors.name ? "border-destructive" : ""}
-                />
-                {errors.name && (
-                  <p className="text-sm text-destructive">{errors.name.message}</p>
-                )}
+                <Input id="name" placeholder="Your name" {...register("name")} className={errors.name ? "border-destructive" : ""} />
+                {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="email">Email *</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your.email@example.com"
-                  {...register("email")}
-                  className={errors.email ? "border-destructive" : ""}
-                />
-                {errors.email && (
-                  <p className="text-sm text-destructive">{errors.email.message}</p>
-                )}
+                <Input id="email" type="email" placeholder="your.email@example.com" {...register("email")} className={errors.email ? "border-destructive" : ""} />
+                {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="subject">Subject *</Label>
-                <Input
-                  id="subject"
-                  placeholder="What's this about?"
-                  {...register("subject")}
-                  className={errors.subject ? "border-destructive" : ""}
-                />
-                {errors.subject && (
-                  <p className="text-sm text-destructive">{errors.subject.message}</p>
-                )}
+                <Input id="subject" placeholder="What's this about?" {...register("subject")} className={errors.subject ? "border-destructive" : ""} />
+                {errors.subject && <p className="text-sm text-destructive">{errors.subject.message}</p>}
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="message">Message *</Label>
-                <Textarea
-                  id="message"
-                  placeholder="Tell me about your project or inquiry..."
-                  rows={6}
-                  {...register("message")}
-                  className={errors.message ? "border-destructive" : ""}
-                />
-                {errors.message && (
-                  <p className="text-sm text-destructive">{errors.message.message}</p>
-                )}
+                <Textarea id="message" rows={6} placeholder="Tell me about your project or inquiry..." {...register("message")} className={errors.message ? "border-destructive" : ""} />
+                {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
               </div>
 
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full group"
-                size="lg"
-              >
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </>
-                )}
+              <Button type="submit" disabled={isSubmitting} className="w-full group" size="lg">
+                {isSubmitting ? "Sending..." : <>
+                  Send Message
+                  <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </>}
               </Button>
+
             </form>
           </motion.div>
+
         </div>
       </div>
     </div>
