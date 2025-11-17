@@ -16,7 +16,7 @@ const Hobbies = () => {
   const videoRefs = useRef<HTMLVideoElement[]>([]);
 
   const singingVideos = [
-    { title: "Basanta (Cover)", src: "/videos/cover1-compressed.mp4" },
+    { title: "Basanta (Cover)", src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796945/cover1_ztxd4e.mov" },
     { title: "Juni Vari Lai (Cover)", src: "/videos/cover2-compressed.mp4" },
     { title: "Blue (Cover)", src: "/videos/cover4-compressed.mp4" },
     { title: "Kalo Seto (Cover)", src: "/videos/cover33-compressed.mp4" },
