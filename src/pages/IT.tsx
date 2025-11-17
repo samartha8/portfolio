@@ -31,9 +31,9 @@ const IT = () => {
       description: "Full-stack AI-powered app with predictive analytics, smart diet plans, and cross-platform support for proactive diabetes management.",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      github: "#",
+      // github: "#",
       // demo: "#",
-      thumbnail: "/thumbnails/dashboard-thumb.jpg",
+      thumbnail: "/thumbnails/onprogress.png",
     },
   ];
 
@@ -182,7 +182,7 @@ const IT = () => {
                       View Code
                     </Button>
                   </a>
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                  {/* <a href={project.demo} target="_blank" rel="noopener noreferrer">
                     <Button
                       size="lg"
                       className="bg-it hover:bg-it/90 hover:shadow-glow-it transition-all duration-300"
@@ -190,7 +190,7 @@ const IT = () => {
                       <ExternalLink className="w-5 h-5 mr-2" />
                       Live Demo
                     </Button>
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </motion.div>
