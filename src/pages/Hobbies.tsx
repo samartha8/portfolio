@@ -17,9 +17,9 @@ const Hobbies = () => {
 
   const singingVideos = [
     { title: "Basanta (Cover)", src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796945/cover1_ztxd4e.mov" },
-    { title: "Juni Vari Lai (Cover)", src: "/videos/cover2-compressed.mp4" },
-    { title: "Blue (Cover)", src: "/videos/cover4-compressed.mp4" },
-    { title: "Kalo Seto (Cover)", src: "/videos/cover33-compressed.mp4" },
+    { title: "Juni Vari Lai (Cover)", src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796891/cover2_uy7hd4.mp4" },
+    { title: "Blue (Cover)", src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796933/cover4_qaemws.mp4" },
+    { title: "Kalo Seto (Cover)", src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1763351159/cover33-compressed_xjjn75.mp4" },
     // ✅ You can freely add more videos below — they'll auto-fit the layout.
     // { title: "New Song (Cover)", src: "/videos/newCover-compressed.mp4" },
   ];
