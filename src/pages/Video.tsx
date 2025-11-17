@@ -67,20 +67,20 @@ const Video = () => {
           </p>
         </motion.div>
 
-        {/* Download CV */}
+        {/* View CV */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
           className="flex justify-center mb-20"
         >
-          <a href="/cv/video-cv.pdf" download>
+          <a href="/cv/video-cv.pdf" target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
               className="bg-video hover:bg-video/90 hover:shadow-glow-video transition-all duration-300"
             >
-              <Download className="mr-2 w-5 h-5" />
-              Download Video CV
+              <Play className="mr-2 w-5 h-5" />
+              View Video CV
             </Button>
           </a>
         </motion.div>
@@ -108,7 +108,7 @@ const Video = () => {
                       : "aspect-video w-full"
                   }`}
                 >
-                  {/* ✅ Static thumbnail only */}
+                  {/* Static Thumbnail */}
                   <img
                     src={video.thumbnail}
                     alt={`${video.title} thumbnail`}
