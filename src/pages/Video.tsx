@@ -10,31 +10,31 @@ const Video = () => {
   const videos = [
     {
       title: "Gym Related Video",
-      src: "/videos/newOne.mp4",
+      src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796945/newOne_stvwbr.mov",
       thumbnail: "/thumbnails/pic1.png",
       orientation: "landscape",
     },
     {
-      title: "College Event Vlog",
-      src: "/videos/sample.mp4",
+      title: "Cinematic Short Video",
+      src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1763351443/mikaHoodieFinal_cn7vij.mov",
       thumbnail: "/thumbnails/pic2.png",
-      orientation: "landscape",
+      orientation: "portrait",
     },
     {
       title: "Scripting and Storyboarding Video",
-      src: "/videos/BatteryVideo.mp4",
+      src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796946/BatteryVideo_w3dfbx.mov",
       thumbnail: "/thumbnails/pic3.png",
       orientation: "portrait",
     },
     {
       title: "Fashion Short Aesthetic Video",
-      src: "/videos/hoodie-compressed.mp4",
+      src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796909/hoodie_shob5w.mp4",
       thumbnail: "/thumbnails/pic4.png",
       orientation: "portrait",
     },
     {
       title: "Announcement Video",
-      src: "/videos/event.mp4",
+      src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796921/event_z7x6jk.mov",
       thumbnail: "/thumbnails/pic5.png",
       orientation: "portrait",
     },
