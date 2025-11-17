@@ -14,8 +14,8 @@ const IT = () => {
       image:
         "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
       github: "https://github.com/samartha8/chori-app",
-      demo: "#",
-      thumbnail: "/thumbnails/ai-thumb.jpg",
+      // demo: "#",
+      thumbnail: "/thumbnails/chori.png",
     },
     {
       title: "PUBG Quiz Competition",
@@ -23,8 +23,8 @@ const IT = () => {
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
       github: "https://github.com/samartha8/quiz-application",
-      demo: "#",
-      thumbnail: "/thumbnails/ecom-thumb.jpg",
+      // demo: "#",
+      thumbnail: "/thumbnails/pubg.png",
     },
     {
       title: "Diabetes Detection and Wellness Platform",
@@ -32,7 +32,7 @@ const IT = () => {
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       github: "#",
-      demo: "#",
+      // demo: "#",
       thumbnail: "/thumbnails/dashboard-thumb.jpg",
     },
   ];
