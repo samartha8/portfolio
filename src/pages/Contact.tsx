@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -41,8 +41,8 @@ const Contact = () => {
         "service_g5dv62m",
         "template_9xzxb0o",
         {
-          from_name: data.name,      // used in email header
-          reply_to: data.email,      // Gmail sees this & shows user email
+          from_name: data.name,
+          reply_to: data.email,
           subject: data.subject,
           message: data.message,
           to_email: "workwithsamartha@gmail.com"
@@ -68,136 +68,161 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-16 px-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen pt-32 pb-20 px-6 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-it/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-model/10 rounded-full blur-[128px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
         >
-          <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
-            <span className="bg-gradient-to-r from-it via-video to-model bg-clip-text text-transparent">
-              Let's Work Together
+          <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+            <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Get In Touch</span>
+          </div>
+          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 tracking-tight">
+            Let's create something <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">
+              extraordinary.
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from you.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
+            Have a project in mind? Whether it's code, content, or creative direction — I'm ready to collaborate.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
 
-          {/* Left Side Info */}
+          {/* Contact Info Card */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
-            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8">
-              <h2 className="text-3xl font-heading font-bold mb-6">Get in Touch</h2>
-              <p className="text-muted-foreground mb-8">
-                Whether you need IT development, video editing, or professional modeling services,
-                I'm here to bring your vision to life.
-              </p>
+            <div className="glass-panel p-8 md:p-10 rounded-3xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 group">
-                  <div className="p-3 bg-secondary rounded-lg group-hover:bg-primary/10 transition-colors">
-                    <Mail className="w-6 h-6 text-primary" />
+              <h2 className="text-3xl font-heading font-bold mb-8 text-white">Contact Information</h2>
+
+              <div className="space-y-8">
+                <a href="mailto:workwithsamartha@gmail.com" className="flex items-start gap-6 group/item">
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover/item:bg-it/20 group-hover/item:border-it/30 transition-all duration-300">
+                    <Mail className="w-6 h-6 text-muted-foreground group-hover/item:text-it transition-colors" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
-                    <a href="mailto:workwithsamartha@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                      workwithsamartha@gmail.com
-                    </a>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">Email</h3>
+                    <span className="text-lg md:text-xl text-white font-medium group-hover/item:text-it transition-colors">workwithsamartha@gmail.com</span>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex items-start gap-4 group">
-                  <div className="p-3 bg-secondary rounded-lg group-hover:bg-primary/10 transition-colors">
-                    <Phone className="w-6 h-6 text-primary" />
+                <a href="tel:+9779843736234" className="flex items-start gap-6 group/item">
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover/item:bg-video/20 group-hover/item:border-video/30 transition-all duration-300">
+                    <Phone className="w-6 h-6 text-muted-foreground group-hover/item:text-video transition-colors" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Phone</h3>
-                    <a href="tel:+9779843736234" className="text-muted-foreground hover:text-primary transition-colors">
-                      +977 9843736234
-                    </a>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">Phone</h3>
+                    <span className="text-lg md:text-xl text-white font-medium group-hover/item:text-video transition-colors">+977 9843736234</span>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex items-start gap-4 group">
-                  <div className="p-3 bg-secondary rounded-lg group-hover:bg-primary/10 transition-colors">
-                    <MapPin className="w-6 h-6 text-primary" />
+                <div className="flex items-start gap-6 group/item">
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover/item:bg-model/20 group-hover/item:border-model/30 transition-all duration-300">
+                    <MapPin className="w-6 h-6 text-muted-foreground group-hover/item:text-model transition-colors" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Location</h3>
-                    <p className="text-muted-foreground">Available for remote & on-site projects</p>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">Location</h3>
+                    <span className="text-lg md:text-xl text-white font-medium">Lalitpur, Nepal</span>
+                    <p className="text-sm text-muted-foreground/60 mt-1">Available for Remote Work</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8">
-              <h3 className="text-xl font-heading font-bold mb-4">Services</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-muted-foreground">
-                  <div className="w-2 h-2 bg-it rounded-full" />
-                  IT & Web Development
-                </li>
-                <li className="flex items-center gap-2 text-muted-foreground">
-                  <div className="w-2 h-2 bg-video rounded-full" />
-                  Video Production & Editing
-                </li>
-                <li className="flex items-center gap-2 text-muted-foreground">
-                  <div className="w-2 h-2 bg-model rounded-full" />
-                  Professional Modeling
-                </li>
-              </ul>
+            {/* Services Mini-Card */}
+            <div className="glass-panel p-8 rounded-3xl">
+              <h3 className="text-lg font-heading font-bold mb-6 text-white">My Services</h3>
+              <div className="flex flex-wrap gap-3">
+                {["Full Stack Development", "Video Editing", "Content Creation", "Modeling"].map((service, i) => (
+                  <span key={i} className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 hover:bg-white/10 hover:border-white/20 transition-colors cursor-default">
+                    {service}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <form onSubmit={handleSubmit(onSubmit)} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 space-y-6">
+            <div className="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-gray-300">Name</Label>
+                    <Input
+                      id="name"
+                      placeholder="John Doe"
+                      {...register("name")}
+                      className={`bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-white/30 focus:ring-0 rounded-xl h-12 ${errors.name ? "border-destructive/50" : ""}`}
+                    />
+                    {errors.name && <p className="text-xs text-destructive mt-1">{errors.name.message}</p>}
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-gray-300">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      {...register("email")}
+                      className={`bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-white/30 focus:ring-0 rounded-xl h-12 ${errors.email ? "border-destructive/50" : ""}`}
+                    />
+                    {errors.email && <p className="text-xs text-destructive mt-1">{errors.email.message}</p>}
+                  </div>
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="name">Name *</Label>
-                <Input id="name" placeholder="Your name" {...register("name")} className={errors.name ? "border-destructive" : ""} />
-                {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
-              </div>
+                <div className="space-y-2">
+                  <Label htmlFor="subject" className="text-gray-300">Subject</Label>
+                  <Input
+                    id="subject"
+                    placeholder="Project Inquiry..."
+                    {...register("subject")}
+                    className={`bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-white/30 focus:ring-0 rounded-xl h-12 ${errors.subject ? "border-destructive/50" : ""}`}
+                  />
+                  {errors.subject && <p className="text-xs text-destructive mt-1">{errors.subject.message}</p>}
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email">Email *</Label>
-                <Input id="email" type="email" placeholder="your.email@example.com" {...register("email")} className={errors.email ? "border-destructive" : ""} />
-                {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
-              </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-gray-300">Message</Label>
+                  <Textarea
+                    id="message"
+                    rows={6}
+                    placeholder="Tell me about your project details..."
+                    {...register("message")}
+                    className={`bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-white/30 focus:ring-0 rounded-xl resize-none ${errors.message ? "border-destructive/50" : ""}`}
+                  />
+                  {errors.message && <p className="text-xs text-destructive mt-1">{errors.message.message}</p>}
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="subject">Subject *</Label>
-                <Input id="subject" placeholder="What's this about?" {...register("subject")} className={errors.subject ? "border-destructive" : ""} />
-                {errors.subject && <p className="text-sm text-destructive">{errors.subject.message}</p>}
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message">Message *</Label>
-                <Textarea id="message" rows={6} placeholder="Tell me about your project or inquiry..." {...register("message")} className={errors.message ? "border-destructive" : ""} />
-                {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
-              </div>
-
-              <Button type="submit" disabled={isSubmitting} className="w-full group" size="lg">
-                {isSubmitting ? "Sending..." : <>
-                  Send Message
-                  <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </>}
-              </Button>
-
-            </form>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full h-12 text-base rounded-xl font-medium bg-white text-black hover:bg-gray-200 transition-all duration-300 group mt-4 hover:shadow-lg hover:shadow-white/10"
+                >
+                  {isSubmitting ? "Sending..." : (
+                    <span className="flex items-center gap-2">
+                      Send Message <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  )}
+                </Button>
+              </form>
+            </div>
           </motion.div>
 
         </div>
@@ -207,3 +232,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

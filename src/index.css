@@ -2,65 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* Dark Premium Portfolio Theme */
-    --background: 0 0% 0%;
+    /* Base HSL Values */
+    --background: 240 10% 3.9%;
+    /* Very dark charcoal/black */
     --foreground: 0 0% 98%;
 
-    --card: 240 5% 8%;
+    --card: 240 10% 5%;
+    /* Slightly lighter than background */
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 5% 8%;
+    --popover: 240 10% 5%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 0%;
+    --primary-foreground: 240 5.9% 10%;
 
-    --secondary: 240 5% 15%;
+    --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 5% 25%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
 
-    --accent: 240 5% 15%;
+    --accent: 240 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5% 20%;
-    --input: 240 5% 20%;
-    --ring: 217 91% 60%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
+    /* Sharper corners for modern feel */
 
-    /* Accent colors for different sections */
-    --it-accent: 217 91% 60%;
-    --video-accent: 270 80% 65%;
-    --model-accent: 0 84% 60%;
+    /* Premium Custom Colors */
+    --gold: 45 93% 47%;
+    --gold-foreground: 0 0% 0%;
 
-    /* Glow effects */
-    --it-glow: 217 91% 60% / 0.3;
-    --video-glow: 270 80% 65% / 0.3;
-    --model-glow: 0 84% 60% / 0.3;
+    --electric-blue: 217 91% 60%;
 
-    /* Gradients */
-    --gradient-it: linear-gradient(135deg, hsl(217 91% 60% / 0.2), hsl(217 91% 60% / 0));
-    --gradient-video: linear-gradient(135deg, hsl(270 80% 65% / 0.2), hsl(270 80% 65% / 0));
-    --gradient-model: linear-gradient(135deg, hsl(0 84% 60% / 0.2), hsl(0 84% 60% / 0));
+    /* Section Accents (Restored & Refined) */
+    --it: 217 91% 60%;
+    /* Electric Blue */
+    --it-foreground: 0 0% 98%;
+    --it-glow: 217 91% 60% / 0.5;
 
-    /* Shadows */
-    --shadow-glow-it: 0 0 30px hsl(217 91% 60% / 0.4);
-    --shadow-glow-video: 0 0 30px hsl(270 80% 65% / 0.4);
-    --shadow-glow-model: 0 0 30px hsl(0 84% 60% / 0.4);
+    --video: 270 50% 60%;
+    /* Muted Purple for Video */
+    --video-foreground: 0 0% 98%;
+    --video-glow: 270 50% 60% / 0.5;
 
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --model: 340 70% 55%;
+    /* Deep Pink/Red for Model */
+    --model-foreground: 0 0% 98%;
+    --model-glow: 340 70% 55% / 0.5;
+
+    /* Animation Speeds */
+    --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -70,11 +73,116 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+    /* Primary Font */
+    /* Enhance text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Outfit', sans-serif;
+    /* Heading Font */
+  }
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+
+  /* Glassmorphism Utility */
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg;
+  }
+
+  .glass-button {
+    @apply bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/5 transition-all duration-300;
+  }
+
+  /* Text Gradients */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-amber-400 to-yellow-600;
+  }
+
+  /* Section Gradients */
+  .bg-gradient-it {
+    background: linear-gradient(135deg, hsl(var(--it) / 0.2), transparent);
+  }
+
+  .bg-gradient-video {
+    background: linear-gradient(135deg, hsl(var(--video) / 0.2), transparent);
+  }
+
+  .bg-gradient-model {
+    background: linear-gradient(135deg, hsl(var(--model) / 0.2), transparent);
+  }
+
+  /* Creative Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
   }
 }

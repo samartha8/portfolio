@@ -9,46 +9,57 @@ const Explore = () => {
       description: "Explore my web projects, designs, and creative builds.",
       icon: Code2,
       path: "/it",
-      gradient: "from-it/20 to-transparent",
-      hoverGlow: "hover:shadow-glow-it",
-      textColor: "text-it",
+      border: "hover:border-it/50",
+      bg: "hover:bg-it/5",
+      iconColor: "text-it",
+      glow: "shadow-it/20",
     },
     {
       title: "Video Editing",
       description: "Dive into my visual storytelling and creative edits.",
       icon: Video,
       path: "/video",
-      gradient: "from-video/20 to-transparent",
-      hoverGlow: "hover:shadow-glow-video",
-      textColor: "text-video",
+      border: "hover:border-video/50",
+      bg: "hover:bg-video/5",
+      iconColor: "text-video",
+      glow: "shadow-video/20",
     },
     {
       title: "Model | Content Creator",
       description: "Discover my portfolio of campaigns and collaborations.",
       icon: Camera,
       path: "/model",
-      gradient: "from-model/20 to-transparent",
-      hoverGlow: "hover:shadow-glow-model",
-      textColor: "text-model",
+      border: "hover:border-model/50",
+      bg: "hover:bg-model/5",
+      iconColor: "text-model",
+      glow: "shadow-model/20",
     },
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-32">
-      <div className="max-w-7xl w-full">
+    <div className="min-h-screen flex items-center justify-center px-6 py-32 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-it/10 rounded-full blur-[128px] pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-model/10 rounded-full blur-[128px] pointer-events-none" />
+
+      <div className="max-w-7xl w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Which side of me do you want to{" "}
+          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 tracking-tight">
+            Which side of me <br /> do you want to{" "}
             <span className="bg-gradient-to-r from-it via-video to-model bg-clip-text text-transparent">
               explore
             </span>
             ?
           </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
+            A blend of technical expertise, visual storytelling, and creative expression.
+            Choose a path to see my work.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -61,34 +72,29 @@ const Explore = () => {
             >
               <Link to={card.path}>
                 <div
-                  className={`group relative h-96 bg-card/70 backdrop-blur-lg border border-border rounded-3xl p-8 overflow-hidden transition-all duration-500 hover:scale-105 ${card.hoverGlow} cursor-pointer`}
+                  className={`group relative h-[450px] glass-panel rounded-3xl p-8 overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2 border border-white/10 ${card.border} ${card.bg} cursor-pointer hover:shadow-2xl ${card.glow}`}
                 >
-                  {/* Background Gradient */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                  />
-
                   {/* Content */}
-                  <div className="relative h-full flex flex-col">
-                    <div className="flex-1 flex items-center justify-center">
+                  <div className="relative h-full flex flex-col items-center justify-center z-10 text-center space-y-8">
+                    <div className={`w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:bg-white/10`}>
                       <card.icon
-                        className={`w-24 h-24 ${card.textColor} transition-transform duration-500 group-hover:scale-110`}
+                        className={`w-10 h-10 ${card.iconColor} transition-transform duration-500 group-hover:scale-110 drop-shadow-lg`}
                       />
                     </div>
 
-                    <div className="space-y-3">
-                      <h3
-                        className={`text-2xl font-heading font-bold ${card.textColor}`}
-                      >
+                    <div className="space-y-4">
+                      <h3 className={`text-3xl font-heading font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 transition-colors`}>
                         {card.title}
                       </h3>
-                      <p className="text-muted-foreground">{card.description}</p>
+                      <p className="text-muted-foreground group-hover:text-gray-300 transition-colors text-lg leading-relaxed px-4">
+                        {card.description}
+                      </p>
                     </div>
 
                     {/* Hover Arrow Indicator */}
-                    <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${card.gradient} flex items-center justify-center`}>
-                        <span className={`text-xl ${card.textColor}`}>→</span>
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                      <div className={`w-12 h-12 rounded-full bg-${card.iconColor.replace('text-', '')}/20 backdrop-blur-md flex items-center justify-center border border-${card.iconColor.replace('text-', '')}/30`}>
+                        <span className={`text-xl ${card.iconColor}`}>→</span>
                       </div>
                     </div>
                   </div>
