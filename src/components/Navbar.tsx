@@ -36,12 +36,12 @@ const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-4" : "py-6"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-2 md:py-4" : "py-3 md:py-6"
         }`}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-2 md:px-6">
         <div
-          className={`rounded-2xl px-6 py-4 transition-all duration-300 ${scrolled
+          className={`rounded-2xl px-4 md:px-6 py-3 md:py-4 transition-all duration-300 ${scrolled || isOpen
             ? "glass-panel bg-black/40 backdrop-blur-md border-white/10"
             : "bg-transparent border-transparent"
             }`}

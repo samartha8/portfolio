@@ -58,8 +58,8 @@ const Home = () => {
       <section ref={targetRef} className="h-screen flex items-center justify-center relative overflow-hidden px-6">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-background z-0" />
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-it/20 rounded-full blur-[128px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-video/20 rounded-full blur-[128px] animate-pulse-glow delay-1000" />
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-it/20 rounded-full blur-[128px] animate-pulse-glow will-change-transform" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-video/20 rounded-full blur-[128px] animate-pulse-glow delay-1000 will-change-transform" />
 
         <motion.div
           style={{ opacity, scale, y: position }}
