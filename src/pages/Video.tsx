@@ -39,7 +39,7 @@ const Video = () => {
     },
   ];
 
-  const tools = ["DaVinci Resolve", "CapCut", "Premiere Pro", "After Effects"];
+  const tools = ["DaVinci Resolve", "CapCut"];
 
   // ESC key to close modal
   useEffect(() => {

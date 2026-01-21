@@ -1,73 +1,65 @@
-# Welcome to your Lovable project
+# Samartha Shakya | Multidisciplinary Creator
 
-## Project info
+Welcome to the personal portfolio of **Samartha Shakya**. This project showcases my journey and work across multiple disciplines including IT Development, Video Editing, Modeling, and Content Creation.
 
-**URL**: https://lovable.dev/projects/29bed34a-bd77-4b11-a6a6-f03177434486
+## 🚀 About The Project
 
-## How can I edit this code?
+This modern, responsive web application serves as a digital nexus for my creative and technical endeavors. It is designed to provide an immersive experience, highlighting my diverse skillset and projects.
 
-There are several ways of editing your application.
+### Key Sections
+- **IT / Developer**: Showcasing my coding projects, technical skills, and software development journey.
+- **Video Editor**: A gallery of my video editing work, storytelling, and visual content creation.
+- **Model**: My modeling portfolio, featuring photoshoots and fashion projects.
+- **Hobbies**: A glimpse into my personal interests and passions.
+- **Explore**: A hub to discover more about my work and creative vision.
+- **Contact**: Get in touch for collaborations and inquiries.
 
-**Use Lovable**
+## 🛠️ Built With
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/29bed34a-bd77-4b11-a6a6-f03177434486) and start prompting.
+This project leverages modern web technologies for performance and aesthetics:
 
-Changes made via Lovable will be committed automatically to this repo.
+- **[Vite](https://vitejs.dev/)** - Next Generation Frontend Tooling
+- **[React](https://reactjs.org/)** - A JavaScript library for building user interfaces
+- **[TypeScript](https://www.typescriptlang.org/)** - Typed JavaScript at Any Scale
+- **[Tailwind CSS](https://tailwindcss.com/)** - A utility-first CSS framework
+- **[shadcn/ui](https://ui.shadcn.com/)** - Beautifully designed components
+- **[Framer Motion](https://www.framer.com/motion/)** - Production-ready motion library for React
+- **[Lucide React](https://lucide.dev/)** - Beautiful & consistent icons
 
-**Use your preferred IDE**
+## 💻 Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+To run this project locally, follow these steps:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
+Ensure you have Node.js and npm installed on your machine.
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. **Clone the repository**
+   ```bash
+   git clone <YOUR_GIT_URL>
+   cd samartha-nexus
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+4. Open your browser and navigate to `http://localhost:8080` (or the port shown in your terminal).
 
-**Edit a file directly in GitHub**
+## 🤝 Contact
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**Samartha Shakya**
+- **Email**: [workwithsamartha@gmail.com](mailto:workwithsamartha@gmail.com)
+- **Phone**: +977 9843736234
+- **Location**: Lalitpur, Nepal
 
-**Use GitHub Codespaces**
+## 📝 License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/29bed34a-bd77-4b11-a6a6-f03177434486) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is open source and available under the [MIT License](LICENSE).
