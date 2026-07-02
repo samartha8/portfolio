@@ -1,219 +1,261 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Download, X, Code2, Database, Terminal, ArrowRight, Eye } from "lucide-react";
+import { ArrowRight, Eye, Code2, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const IT = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const tools = ["React", "TypeScript", "Node.js", "Python", "AI / ML", "MongoDB"];
 
   const projects = [
     {
-      title: "CHORI – Care, Health, and Openness for Reproductive Insight",
-      description: "Full-stack menstrual wellness platform with AI chatbot, personalized tracking, and diet planning.",
-      image:
-        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
-      github: "https://github.com/samartha8/chori-app",
-      // demo: "#",
+      id: "01",
+      title: "CHORI PLATFORM",
+      subtitle: "Reproductive Wellness & AI",
+      description: "A comprehensive menstrual health ecosystem. Integrating AI-driven insights with high-fidelity tracking and personalized wellness strategies.",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200",
       thumbnail: "/thumbnails/chori.png",
-      tags: ["React", "AI/ML", "Node.js"]
+      github: "https://github.com/samartha8/chori-app",
+      tags: ["React", "AI/ML", "Node.js", "Tailwind"],
+      specs: {
+        role: "Lead Architect",
+        stack: "MERN Stack",
+        scale: "Global"
+      }
     },
     {
-      title: "PUBG Quiz Competition",
-      description: "Full-stack Java-based quiz platform with real-time scoring and multiplayer support.",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-      github: "https://github.com/samartha8/quiz-application",
-      // demo: "#",
+      id: "02",
+      title: "QUIZ ENGINE",
+      subtitle: "Competitive Java Logic",
+      description: "Building the backbone for real-time competitive gaming analytics. A high-concurrency engine optimized for low-latency performance.",
+      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200",
       thumbnail: "/thumbnails/pubg.png",
-      tags: ["Java", "Real-time", "SQL"]
+      github: "https://github.com/samartha8/quiz-application",
+      tags: ["Java", "SQL", "Swing", "Real-time"],
+      specs: {
+        role: "Full-Stack Dev",
+        stack: "Java/MySQL",
+        scale: "Enterprise"
+      }
     },
     {
-      title: "Diabetes Detection and Wellness Platform",
-      description: "Full-stack AI-powered app with predictive analytics, smart diet plans, and cross-platform support.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      // github: "#",
-      // demo: "#",
+      id: "03",
+      title: "DIABETES DETECTOR",
+      subtitle: "Healthcare Data Analysis",
+      description: "A precision-focused diagnostic tool using machine learning to map wellness trajectories and predict healthcare needs.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
       thumbnail: "/thumbnails/onprogress.png",
-      tags: ["AI", "Healthcare", "Python"]
+      github: "#",
+      tags: ["Python", "AI", "Healthcare"],
+      specs: {
+        role: "Data Architect",
+        stack: "Python/ML",
+        scale: "Research"
+      }
     },
   ];
 
   return (
-    <div className="min-h-screen px-6 py-32 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-it/10 rounded-full blur-[128px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
+    <div className="relative overflow-hidden bg-background pb-32 pt-28 text-zinc-900">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(107,112,92,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(107,112,92,0.07)_1px,transparent_1px)] bg-[size:220px_220px]" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-            <Code2 className="w-4 h-4 text-it" />
-            <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Software Engineering</span>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 tracking-tight">
-            Building the <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-it/80 to-it">
-              Digital Future.
-            </span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
-            Crafting robust, scalable solutions with a focus on user experience and
-            clean architecture. Specializing in modern web technologies and AI integration.
-          </p>
-        </motion.div>
-
-        {/* View CV */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center mb-24"
-        >
-          <a href="/cv/IT-cv.pdf" target="_blank" rel="noopener noreferrer">
-            <Button
-              size="lg"
-              className="bg-it text-white hover:bg-it/90 hover:shadow-lg hover:shadow-it/20 transition-all duration-300 rounded-full px-8 h-12"
-            >
-              <Eye className="mr-2 w-5 h-5" />
-              View CV
-            </Button>
-          </a>
-        </motion.div>
-
-        {/* Technologies Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-24"
-        >
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 rounded-2xl bg-it/10 flex items-center justify-center border border-it/20">
-              <Database className="w-6 h-6 text-it" />
+      {/* 1. HERO */}
+      <section className="section-container relative !py-0 pb-20 md:pb-28">
+        <div className="grid items-end gap-10 overflow-hidden lg:grid-cols-[0.95fr_1.05fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="min-w-0 space-y-8"
+          >
+            <div className="inline-flex max-w-full items-center gap-3 border-y border-primary/20 py-3 text-[10px] font-black uppercase tracking-[0.18em] text-primary sm:tracking-[0.32em]">
+              <Code2 className="h-4 w-4" />
+              Full-Stack / AI / ML
             </div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Tech Stack</h2>
-          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {[
-              "React", "Firebase", "Java", "TypeScript",
-              "Node.js", "Python", "Tailwind", "Git",
-              "SQL", "NoSQL", "REST APIs", "AI/ML"
-            ].map((skill, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.5 + index * 0.05 }}
-                className="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-it/30 hover:bg-white/5 transition-all duration-300 group"
+            <div className="space-y-5">
+              <h1 className="max-w-full overflow-hidden text-[3.7rem] font-heading font-black leading-[0.82] tracking-normal text-[#1f2024] min-[420px]:text-[4.4rem] sm:text-[6rem] md:text-[7rem] lg:text-[8rem]">
+                Technical
+                <span className="block text-primary">Builder</span>
+              </h1>
+              <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+                Full-stack development, AI integration, and machine learning workflows built with clear structure and practical delivery.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <a href="/cv/IT-cv.pdf" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="h-14 rounded-lg bg-primary px-8 text-sm font-bold uppercase tracking-[0.18em] text-white hover:bg-primary/90"
+                >
+                  <Eye className="mr-2 h-5 w-5" />
+                  View CV
+                </Button>
+              </a>
+              <div className="border-l border-primary/25 pl-4 text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground sm:tracking-[0.24em]">
+                Build / Train / Deploy
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="relative mx-auto min-h-[30rem] w-full max-w-sm overflow-hidden rounded-lg bg-black shadow-[0_24px_70px_rgba(20,20,20,0.24)] ring-1 ring-black/10 sm:min-h-[40rem] lg:justify-self-end"
+          >
+            <img
+              src="/thumbnails/code.jpg"
+              alt="Technical project preview"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-3 p-6 text-white sm:p-8">
+              <div className="text-[10px] font-black uppercase tracking-[0.28em] text-white/60">System Thinking</div>
+              <div className="max-w-[12ch] text-4xl font-heading leading-[0.9] sm:text-5xl">
+                Code That Ships
+              </div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/70">
+                Product / AI / Data
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. SYSTEM STACK */}
+      <section className="section-container relative !py-0 pb-28">
+         <div className="grid gap-6 border-y border-primary/20 py-8 md:grid-cols-[0.7fr_1.3fr] md:items-center">
+          <div>
+            <div className="text-[10px] font-black uppercase tracking-[0.32em] text-primary">Technical Stack</div>
+            <h2 className="mt-2 text-4xl font-heading leading-none text-[#1f2024] sm:text-5xl">Tools in rotation</h2>
+          </div>
+          <div className="flex flex-wrap gap-4 md:justify-end">
+            {tools.map((tech) => (
+              <motion.div 
+                key={tech} 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="rounded-lg border border-primary/20 bg-white/70 px-6 py-4 text-sm font-bold uppercase tracking-[0.16em] text-foreground shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-primary/50 hover:bg-white"
               >
-                <p className="text-muted-foreground group-hover:text-it font-medium transition-colors">{skill}</p>
+                 {tech}
               </motion.div>
             ))}
           </div>
-        </motion.div>
+         </div>
+      </section>
 
-        {/* Projects Section */}
-        <div className="space-y-4 mb-12">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 rounded-2xl bg-it/10 flex items-center justify-center border border-it/20">
-              <Terminal className="w-6 h-6 text-it" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Featured Projects</h2>
-          </div>
-        </div>
-
-        <div className="space-y-16">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 + index * 0.15 }}
-              className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                } gap-12 items-center group`}
-            >
-              {/* Image Section */}
-              <div
-                className="w-full lg:w-1/2 relative cursor-pointer"
-                onClick={() => setSelectedImage(project.image)}
-              >
-                <div className="relative h-72 md:h-96 rounded-3xl overflow-hidden border border-white/10 glass-panel hover:shadow-2xl hover:shadow-it/10 transition-all duration-500">
-                  <img
-                    src={project.thumbnail || project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                    <div className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white font-medium flex items-center gap-2">
-                      View details <ArrowRight className="w-4 h-4" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Content Section */}
-              <div className="w-full lg:w-1/2 space-y-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags?.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 rounded-full text-xs font-medium bg-it/10 text-it border border-it/20">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="text-3xl md:text-4xl font-heading font-bold text-white group-hover:text-it transition-colors duration-300">
-                  {project.title}
-                </h3>
-
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="flex gap-4 pt-4">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="border-white/10 bg-white/5 text-white hover:bg-it hover:border-it hover:text-white transition-all duration-300 rounded-full"
+      {/* 3. STRUCTURED PROJECTS */}
+      <section className="space-y-20 md:space-y-28">
+         {projects.map((project, index) => (
+           <div key={project.id} className="section-container !py-0">
+              <div className={`grid md:grid-cols-12 gap-12 md:gap-24 items-center`}>
+                 <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1 }}
+                    className={`md:col-span-7 ${index % 2 !== 0 ? 'md:order-last' : ''}`}
+                 >
+                    <div 
+                      className="aspect-video relative overflow-hidden group border border-border/50 cursor-pointer shadow-xl"
+                      onClick={() => setSelectedImage(project.image)}
                     >
-                      <Github className="w-5 h-5 mr-2" />
-                      View Code
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                       <img 
+                         src={project.thumbnail || project.image} 
+                         alt={project.title} 
+                         className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105" 
+                       />
+                       <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                       <div className="absolute bottom-6 right-6 p-4 bg-white/20 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
+                          <Eye className="w-6 h-6 text-white" />
+                       </div>
+                    </div>
+                 </motion.div>
 
-        {/* Image Preview Modal */}
-        <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-          <DialogContent className="max-w-5xl p-0 border-white/10 bg-black/90 backdrop-blur-xl overflow-hidden rounded-3xl">
-            <div className="relative">
-              <img
-                src={selectedImage || ""}
-                alt="Full preview"
-                className="rounded-lg object-contain max-h-[85vh] w-auto mx-auto"
-              />
+                 <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                    className="md:col-span-5 space-y-8"
+                 >
+                    <div className="space-y-4">
+                       <div className="text-[10px] font-bold text-[#6B705C] uppercase tracking-widest">{project.id} // CASE STUDY</div>
+                       <h4 className="text-4xl md:text-5xl font-heading font-bold uppercase tracking-tight leading-none group">
+                          {project.title}
+                       </h4>
+                       <p className="text-sm font-serif italic text-muted-foreground">{project.subtitle}</p>
+                    </div>
+
+                    <p className="text-lg opacity-80 leading-relaxed font-light">
+                       {project.description}
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-8 py-6 border-t border-b border-border">
+                       <div>
+                          <div className="text-[10px] font-black opacity-30 uppercase tracking-widest">Stack</div>
+                          <div className="font-bold text-xs">{project.specs.stack}</div>
+                       </div>
+                       <div>
+                          <div className="text-[10px] font-black opacity-30 uppercase tracking-widest">Scale</div>
+                          <div className="font-bold text-xs">{project.specs.scale}</div>
+                       </div>
+                    </div>
+
+                    <div className="flex gap-6">
+                       <a href={project.github} target="_blank" className="inline-flex items-center gap-2 group/link font-bold text-xs uppercase tracking-widest text-[#6B705C] pt-2">
+                          View Repository <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                       </a>
+                    </div>
+                 </motion.div>
+              </div>
+           </div>
+         ))}
+      </section>
+
+      {/* 4. CTA */}
+      <section className="section-container pt-48 md:pt-64">
+        <div className="bg-[#6B705C] text-white p-12 md:p-24 space-y-8 text-center relative overflow-hidden">
+          <motion.div 
+            initial={{ scale: 0.95, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            className="relative z-10 space-y-6"
+          >
+            <h2 className="text-5xl md:text-7xl font-heading font-black uppercase tracking-tighter">
+              READY TO <br /> DEPLOY?
+            </h2>
+            <p className="text-lg opacity-80 font-light max-w-xl mx-auto">
+              Initiate a conversation about your technical infrastructure.
+            </p>
+            <div className="pt-6">
+               <Link to="/contact">
+                  <Button variant="outline" className="h-20 rounded-none border-white bg-white px-16 text-xs font-bold uppercase tracking-[0.3em] text-[#6B705C] transition-all hover:bg-transparent hover:text-white">
+                    Start a project
+                  </Button>
+               </Link>
             </div>
-          </DialogContent>
-        </Dialog>
-      </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 5. IMAGE MODAL */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-5xl p-0 border-none bg-black/95 overflow-hidden rounded-none">
+          <img
+            src={selectedImage || ""}
+            alt="Full preview"
+            className="w-full h-auto object-contain max-h-[90vh]"
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
 
 export default IT;
-

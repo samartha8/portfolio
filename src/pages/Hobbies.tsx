@@ -1,252 +1,179 @@
 import { motion } from "framer-motion";
-import { Music, Camera, X, Play, ArrowRight } from "lucide-react";
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { ArrowRight, Camera, Music, Play, X } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const singingVideos = [
+  {
+    title: "Basanta Cover",
+    src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796945/cover1_ztxd4e.mov",
+    poster: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796945/cover1_ztxd4e.jpg",
+  },
+  {
+    title: "Juni Vari Lai Cover",
+    src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796891/cover2_uy7hd4.mp4",
+    poster: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796891/cover2_uy7hd4.jpg",
+  },
+  {
+    title: "Blue Cover",
+    src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796933/cover4_qaemws.mp4",
+    poster: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796933/cover4_qaemws.jpg",
+  },
+];
+
+const creativePhotos = ["/photos/1.jpg", "/photos/2.jpg", "/photos/3.jpg", "/photos/4.jpg"];
 
 const Hobbies = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [videoOrientations, setVideoOrientations] = useState<
-    Record<number, "portrait" | "landscape">
-  >({});
-  const [activeVideo, setActiveVideo] = useState<{
-    src: string;
-    orientation: "portrait" | "landscape";
-  } | null>(null);
+  const [activeVideo, setActiveVideo] = useState<(typeof singingVideos)[number] | null>(null);
 
-  const videoRefs = useRef<HTMLVideoElement[]>([]);
-
-  const singingVideos = [
-    { title: "Basanta (Cover)", src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796945/cover1_ztxd4e.mov" },
-    { title: "Juni Vari Lai (Cover)", src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796891/cover2_uy7hd4.mp4" },
-    { title: "Blue (Cover)", src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1761796933/cover4_qaemws.mp4" },
-    { title: "Kalo Seto (Cover)", src: "https://res.cloudinary.com/du8xf30ei/video/upload/v1763351159/cover33-compressed_xjjn75.mp4" },
-  ];
-
-  const creativePhotos = [
-    "/photos/1.jpg",
-    "/photos/2.jpg",
-    "/photos/3.jpg",
-    "/photos/4.jpg",
-  ];
-
-  // Auto detect video orientation
-  useLayoutEffect(() => {
-    videoRefs.current.forEach((video, index) => {
-      if (!video) return;
-      const updateOrientation = () => {
-        setVideoOrientations((prev) => ({
-          ...prev,
-          [index]:
-            video.videoHeight > video.videoWidth ? "portrait" : "landscape",
-        }));
-      };
-      if (video.readyState >= 1) updateOrientation();
-      else
-        video.addEventListener("loadedmetadata", updateOrientation, {
-          once: true,
-        });
-    });
-  }, [singingVideos.length]);
-
-  // Close modal with ESC
   useEffect(() => {
-    const close = (e: KeyboardEvent) => e.key === "Escape" && setActiveVideo(null);
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActiveVideo(null);
+    };
+
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
   }, []);
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-6 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-video/10 rounded-full blur-[128px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-64 h-64 bg-it/10 rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-            <Music className="w-4 h-4 text-video" />
-            <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Beyond Work</span>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 tracking-tight">
-            Creative <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">
-              Expression.
-            </span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
-            When I'm not coding or editing, I explore the world through music and visuals.
-            These are the moments that fuel my imagination.
-          </p>
-        </motion.div>
-
-        {/* Quote */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-3xl mx-auto mb-24"
-        >
-          <div className="glass-panel p-8 md:p-12 rounded-3xl text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-video via-purple-500 to-indigo-500" />
-            <p className="text-xl md:text-2xl font-serif italic text-white/90 leading-relaxed">
-              "Music is the universal language of mankind. It connects us beyond words,
-              beyond logic — straight to the soul."
+    <div className="min-h-screen bg-background pt-20">
+      <section className="py-20 md:py-32">
+        <div className="section-container !py-0">
+          <div className="mb-14 grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-end">
+            <div>
+              <h1 className="text-7xl font-heading font-black leading-none tracking-normal text-[#3d3e49] sm:text-8xl md:text-9xl">
+                Hobbies
+              </h1>
+              <p className="mt-4 text-base text-muted-foreground tracking-[0.12em] sm:text-xl">
+                The side quests that keep the main work alive
+              </p>
+            </div>
+            <p className="max-w-2xl text-base leading-8 text-muted-foreground md:justify-self-end">
+              Music, photos, and small creative experiments. They are not separate from the portfolio, they are the fuel
+              behind the timing, mood, and visual decisions in the work.
             </p>
           </div>
-        </motion.div>
 
-        {/* Singing Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mb-24"
-        >
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 rounded-2xl bg-video/10 flex items-center justify-center border border-video/20">
-              <Music className="w-6 h-6 text-video" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Vocal Sessions</h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {singingVideos.map((video, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
-                className="group relative glass-panel rounded-3xl overflow-hidden cursor-pointer border border-white/5 hover:border-video/30 transition-all duration-300"
-                onClick={() =>
-                  setActiveVideo({
-                    src: video.src,
-                    orientation: videoOrientations[index] || "portrait",
-                  })
-                }
-              >
-                <div
-                  className={`w-full ${videoOrientations[index] === "portrait"
-                    ? "aspect-[9/16]"
-                    : "aspect-video"
-                    } bg-black relative`}
-                >
-                  <video
-                    ref={(el) => {
-                      if (el) videoRefs.current[index] = el;
-                    }}
-                    preload="metadata"
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                  >
-                    <source src={video.src} type="video/mp4" />
-                  </video>
-
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <div className="w-16 h-16 rounded-full bg-video/80 backdrop-blur-md flex items-center justify-center mb-4 transform scale-50 group-hover:scale-100 transition-transform duration-300 shadow-glow-video">
-                      <Play className="w-6 h-6 text-white ml-1" />
-                    </div>
-                    <span className="text-white font-medium tracking-wide">Play Cover</span>
-                  </div>
-                </div>
-
-                <div className="p-5 relative z-10 bg-gradient-to-t from-black/80 to-transparent">
-                  <h3 className="text-lg font-bold text-white group-hover:text-video transition-colors">{video.title}</h3>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Creative Clicks Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 rounded-2xl bg-it/10 flex items-center justify-center border border-it/20">
-              <Camera className="w-6 h-6 text-it" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Creative Clicks</h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {creativePhotos.map((photo, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-                className="aspect-[4/5] cursor-pointer overflow-hidden rounded-3xl border border-white/10 hover:border-it/50 relative group"
-                onClick={() => setSelectedImage(photo)}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                <motion.img
-                  src={photo}
-                  alt={`Creative photo ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                />
-                <div className="absolute bottom-4 left-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
-                    <ArrowRight className="w-4 h-4 text-white -rotate-45" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Video Modal */}
-        {activeVideo && (
-          <div
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-300"
-            onClick={() => setActiveVideo(null)}
-          >
-            <div
-              className={`relative bg-black rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10 ${activeVideo.orientation === "portrait"
-                ? "w-[22rem] md:w-[26rem] aspect-[9/16]"
-                : "w-full max-w-5xl aspect-video"
-                }`}
-              onClick={(e) => e.stopPropagation()}
+          <div className="grid gap-6">
+            <motion.section
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55 }}
+              className="border border-border bg-white/70 p-5 shadow-sm sm:p-6"
             >
-              <button
-                onClick={() => setActiveVideo(null)}
-                className="absolute top-4 right-4 bg-black/50 hover:bg-black/80 text-white hover:text-red-500 p-2 rounded-full z-20 transition-all backdrop-blur-sm"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              <video
-                src={activeVideo.src}
-                autoPlay
-                controls
-                playsInline
-                className="w-full h-full object-contain"
-              />
+              <div className="mb-6 flex items-center justify-between border-b border-border pb-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.28em] text-primary">Music</div>
+                  <h2 className="mt-2 text-5xl font-heading leading-none text-foreground">Vocal Sessions</h2>
+                </div>
+                <Music className="h-8 w-8 text-primary" />
+              </div>
+
+              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {singingVideos.map((video, index) => (
+                  <button
+                    key={video.title}
+                    type="button"
+                    onClick={() => setActiveVideo(video)}
+                    style={{
+                      minHeight: "240px",
+                      backgroundImage: `linear-gradient(to top, rgba(0,0,0,.86), rgba(0,0,0,.22), rgba(0,0,0,.08)), url(${video.poster})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                    className="group relative block w-full overflow-hidden border border-border/80 bg-black text-left shadow-sm transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_16px_36px_rgba(40,42,35,0.12)]"
+                  >
+                    <div className="absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/10" />
+                    <div className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1.5 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-foreground sm:left-4 sm:top-4 sm:text-[10px]">
+                        Cover {String(index + 1).padStart(2, "0")}
+                    </div>
+                    <div className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full bg-primary text-white shadow-lg transition group-hover:scale-105 sm:right-4 sm:top-4 sm:h-11 sm:w-11">
+                      <Play className="ml-0.5 h-4 w-4 fill-current" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                      <div className="text-2xl font-heading leading-none text-white sm:text-3xl">{video.title}</div>
+                      <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.18em] text-white/60 sm:text-xs sm:tracking-[0.2em]">
+                        Watch / Listen
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </motion.section>
+
+            <motion.section
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+              className="border border-border bg-white/70 p-5 shadow-sm sm:p-6"
+            >
+              <div className="mb-6 flex items-center justify-between border-b border-border pb-5">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-[0.28em] text-primary">Photography</div>
+                  <h2 className="mt-2 text-5xl font-heading leading-none text-foreground">Creative Clicks</h2>
+                </div>
+                <Camera className="h-8 w-8 text-primary" />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+                {creativePhotos.map((photo, index) => (
+                  <motion.a
+                    key={photo}
+                    href={photo}
+                    target="_blank"
+                    rel="noreferrer"
+                    whileHover={{ y: -4 }}
+                    className="group relative aspect-[4/5] overflow-hidden bg-muted"
+                  >
+                    <img
+                      src={photo}
+                      alt={`Creative click ${index + 1}`}
+                      className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent opacity-0 transition group-hover:opacity-100" />
+                    <div className="absolute bottom-4 right-4 grid h-9 w-9 place-items-center rounded-full bg-white text-foreground opacity-0 transition group-hover:opacity-100">
+                      <ArrowRight className="h-4 w-4 -rotate-45" />
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.section>
+          </div>
+        </div>
+      </section>
+
+      {activeVideo && (
+        <div
+          className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/90 p-5"
+          onClick={() => setActiveVideo(null)}
+        >
+          <div
+            className="relative w-full max-w-4xl overflow-hidden bg-black shadow-2xl ring-1 ring-white/10"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setActiveVideo(null)}
+              className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full bg-black/70 text-white transition hover:bg-white hover:text-black"
+              aria-label="Close video player"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <video
+              src={activeVideo.src}
+              preload="metadata"
+              poster={activeVideo.poster}
+              controls
+              autoPlay
+              playsInline
+              className="max-h-[82vh] w-full bg-black object-contain"
+            />
+            <div className="bg-background px-5 py-4">
+              <div className="text-xs font-bold uppercase tracking-[0.24em] text-primary">Now Playing</div>
+              <div className="mt-1 text-3xl font-heading text-foreground">{activeVideo.title}</div>
             </div>
           </div>
-        )}
-
-        {/* Image Modal */}
-        <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-          <DialogContent className="max-w-5xl p-0 border-white/10 bg-black/90 backdrop-blur-xl overflow-hidden rounded-3xl">
-            <div className="relative">
-              <img
-                src={selectedImage || ""}
-                alt="Full size"
-                className="w-full h-auto max-h-[85vh] object-contain"
-              />
-            </div>
-          </DialogContent>
-        </Dialog>
-      </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,69 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Base HSL Values */
-    --background: 240 10% 3.9%;
-    /* Very dark charcoal/black */
-    --foreground: 0 0% 98%;
+    /* Editorial Light Palette */
+    --background: 60 20% 96%; /* #F5F5F3 */
+    --foreground: 0 0% 10%; /* #1A1A1A */
 
-    --card: 240 10% 5%;
-    /* Slightly lighter than background */
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
 
-    --popover: 240 10% 5%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 72 10% 40%; /* #6B705C Olive */
+    --primary-foreground: 60 20% 96%;
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 72 12% 60%; /* #A5A58D Lighter Olive */
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 60 10% 90%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 72 10% 40%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 20% 96%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 72 10% 40%;
 
-    --radius: 0.5rem;
-    /* Sharper corners for modern feel */
-
-    /* Premium Custom Colors */
-    --gold: 45 93% 47%;
-    --gold-foreground: 0 0% 0%;
-
-    --electric-blue: 217 91% 60%;
-
-    /* Section Accents (Restored & Refined) */
-    --it: 217 91% 60%;
-    /* Electric Blue */
-    --it-foreground: 0 0% 98%;
-    --it-glow: 217 91% 60% / 0.5;
-
-    --video: 270 50% 60%;
-    /* Muted Purple for Video */
-    --video-foreground: 0 0% 98%;
-    --video-glow: 270 50% 60% / 0.5;
-
-    --model: 340 70% 55%;
-    /* Deep Pink/Red for Model */
-    --model-foreground: 0 0% 98%;
-    --model-glow: 340 70% 55% / 0.5;
-
-    /* Animation Speeds */
-    --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --radius: 0rem; /* Sharp editorial corners */
   }
 }
 
@@ -74,24 +46,20 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Space Grotesk', sans-serif;
-    /* Primary Font */
-    /* Enhance text rendering */
+    font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    /* Prevent horizontal scroll */
   }
 
-  /* Headings */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: 'Outfit', sans-serif;
-    /* Heading Font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0;
+    @apply uppercase;
+  }
+
+  p {
+    @apply leading-relaxed;
   }
 
   /* Smooth Scrolling */
@@ -101,88 +69,42 @@
 }
 
 @layer components {
-
-  /* Glassmorphism Utility */
-  .glass-panel {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg;
+  .section-container {
+    @apply max-w-[1440px] mx-auto px-5 sm:px-6 md:px-12 lg:px-24 py-16 md:py-24;
   }
 
-  .glass-button {
-    @apply bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/5 transition-all duration-300;
+  .editorial-title {
+    @apply text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-8 leading-[0.9];
   }
 
-  /* Text Gradients */
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500;
+  .editorial-subtitle {
+    @apply text-2xl md:text-3xl font-bold mb-4 font-heading;
   }
 
-  .text-gradient-gold {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-amber-400 to-yellow-600;
+  .olive-card {
+    @apply bg-white p-8 border border-border shadow-sm hover:shadow-md transition-shadow duration-300;
   }
 
-  /* Section Gradients */
-  .bg-gradient-it {
-    background: linear-gradient(135deg, hsl(var(--it) / 0.2), transparent);
+  .stat-number {
+    @apply text-4xl sm:text-5xl md:text-6xl font-heading text-primary;
   }
 
-  .bg-gradient-video {
-    background: linear-gradient(135deg, hsl(var(--video) / 0.2), transparent);
-  }
-
-  .bg-gradient-model {
-    background: linear-gradient(135deg, hsl(var(--model) / 0.2), transparent);
-  }
-
-  /* Creative Container */
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  .stat-label {
+    @apply text-[10px] sm:text-sm uppercase tracking-widest text-muted-foreground mt-2;
   }
 }
 
 @layer utilities {
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  .text-outline {
+    -webkit-text-stroke: 1px black;
+    color: transparent;
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 4s ease-in-out infinite;
+  .bg-olive {
+    background-color: hsl(var(--primary));
   }
 
-  .delay-100 {
-    animation-delay: 100ms;
-  }
-
-  .delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .delay-300 {
-    animation-delay: 300ms;
-  }
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
+  .text-olive {
+    color: hsl(var(--primary));
   }
 }

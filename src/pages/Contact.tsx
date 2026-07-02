@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -68,90 +68,64 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-6 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-it/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-model/10 rounded-full blur-[128px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
+    <div className="min-h-screen pt-16 pb-24 bg-background">
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="mb-16"
         >
-          <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-            <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Get In Touch</span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 tracking-tight">
+
+          <div className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-6">Contact / Get In Touch</div>
+          <h1 className="editorial-title max-w-4xl">
             Let's create something <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">
-              extraordinary.
-            </span>
+            <span className="text-primary italic">extraordinary.</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
-            Have a project in mind? Whether it's code, content, or creative direction — I'm ready to collaborate.
+          <p className="text-2xl text-muted-foreground max-w-2xl font-light leading-relaxed mt-8">
+            Have a project in mind? Whether it's filmmaking, design, or creative direction — I'm ready to collaborate.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
 
-          {/* Contact Info Card */}
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
+            className="lg:col-span-4 space-y-12"
           >
-            <div className="glass-panel p-8 md:p-10 rounded-3xl relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <h2 className="text-3xl font-heading font-bold mb-8 text-white">Contact Information</h2>
-
-              <div className="space-y-8">
-                <a href="mailto:workwithsamartha@gmail.com" className="flex items-start gap-6 group/item">
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover/item:bg-it/20 group-hover/item:border-it/30 transition-all duration-300">
-                    <Mail className="w-6 h-6 text-muted-foreground group-hover/item:text-it transition-colors" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">Email</h3>
-                    <span className="text-lg md:text-xl text-white font-medium group-hover/item:text-it transition-colors">workwithsamartha@gmail.com</span>
-                  </div>
-                </a>
-
-                <a href="tel:+9779843736234" className="flex items-start gap-6 group/item">
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover/item:bg-video/20 group-hover/item:border-video/30 transition-all duration-300">
-                    <Phone className="w-6 h-6 text-muted-foreground group-hover/item:text-video transition-colors" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">Phone</h3>
-                    <span className="text-lg md:text-xl text-white font-medium group-hover/item:text-video transition-colors">+977 9843736234</span>
-                  </div>
-                </a>
-
-                <div className="flex items-start gap-6 group/item">
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover/item:bg-model/20 group-hover/item:border-model/30 transition-all duration-300">
-                    <MapPin className="w-6 h-6 text-muted-foreground group-hover/item:text-model transition-colors" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1">Location</h3>
-                    <span className="text-lg md:text-xl text-white font-medium">Lalitpur, Nepal</span>
-                    <p className="text-sm text-muted-foreground/60 mt-1">Available for Remote Work</p>
-                  </div>
+            <div className="space-y-12">
+                <div className="group">
+                    <h3 className="text-xs font-bold text-primary uppercase tracking-widest mb-4">Email</h3>
+                    <a href="mailto:workwithsamartha@gmail.com" className="text-2xl md:text-3xl font-heading hover:text-primary transition-colors">
+                        workwithsamartha@gmail.com
+                    </a>
                 </div>
-              </div>
+
+                <div className="group">
+                    <h3 className="text-xs font-bold text-primary uppercase tracking-widest mb-4">Phone</h3>
+                    <a href="tel:+9779843736234" className="text-2xl md:text-3xl font-heading hover:text-primary transition-colors">
+                        +977 9843736234
+                    </a>
+                </div>
+
+                <div className="group">
+                    <h3 className="text-xs font-bold text-primary uppercase tracking-widest mb-4">Location</h3>
+                    <div className="text-2xl md:text-3xl font-heading">
+                        Lalitpur, Nepal
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-2 uppercase tracking-tight">Available for Remote Work</p>
+                </div>
             </div>
 
-            {/* Services Mini-Card */}
-            <div className="glass-panel p-8 rounded-3xl">
-              <h3 className="text-lg font-heading font-bold mb-6 text-white">My Services</h3>
-              <div className="flex flex-wrap gap-3">
-                {["Full Stack Development", "Video Editing", "Content Creation", "Modeling"].map((service, i) => (
-                  <span key={i} className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 hover:bg-white/10 hover:border-white/20 transition-colors cursor-default">
-                    {service}
-                  </span>
-                ))}
-              </div>
+            <div className="pt-12 border-t border-border">
+                <h3 className="text-xs font-bold text-primary uppercase tracking-widest mb-6">Socials</h3>
+                <div className="flex flex-wrap gap-x-8 gap-y-4">
+                    <a href="https://www.instagram.com/_samartha_._/" target="_blank" rel="noopener noreferrer" className="text-lg font-heading hover:text-primary transition-colors">Instagram</a>
+                    <a href="https://www.linkedin.com/in/samartha-shakya-032767254/" target="_blank" rel="noopener noreferrer" className="text-lg font-heading hover:text-primary transition-colors">LinkedIn</a>
+                </div>
             </div>
           </motion.div>
 
@@ -160,52 +134,53 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            className="lg:col-span-8"
           >
-            <div className="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-gray-300">Name</Label>
+            <div className="olive-card border-none bg-white p-12 md:p-16">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
+                <div className="grid md:grid-cols-2 gap-10">
+                  <div className="space-y-3">
+                    <Label htmlFor="name" className="text-xs font-bold uppercase tracking-widest text-primary">Name</Label>
                     <Input
                       id="name"
-                      placeholder="John Doe"
+                      placeholder="Samartha Shakya"
                       {...register("name")}
-                      className={`bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-white/30 focus:ring-0 rounded-xl h-12 ${errors.name ? "border-destructive/50" : ""}`}
+                      className={`bg-transparent border-b border-t-0 border-x-0 border-border rounded-none px-0 focus:border-primary transition-all h-12 shadow-none ${errors.name ? "border-destructive" : ""}`}
                     />
                     {errors.name && <p className="text-xs text-destructive mt-1">{errors.name.message}</p>}
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-gray-300">Email</Label>
+                  <div className="space-y-3">
+                    <Label htmlFor="email" className="text-xs font-bold uppercase tracking-widest text-primary">Email</Label>
                     <Input
                       id="email"
                       type="email"
-                      placeholder="john@example.com"
+                      placeholder="hello@example.com"
                       {...register("email")}
-                      className={`bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-white/30 focus:ring-0 rounded-xl h-12 ${errors.email ? "border-destructive/50" : ""}`}
+                      className={`bg-transparent border-b border-t-0 border-x-0 border-border rounded-none px-0 focus:border-primary transition-all h-12 shadow-none ${errors.email ? "border-destructive" : ""}`}
                     />
                     {errors.email && <p className="text-xs text-destructive mt-1">{errors.email.message}</p>}
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-gray-300">Subject</Label>
+                <div className="space-y-3">
+                  <Label htmlFor="subject" className="text-xs font-bold uppercase tracking-widest text-primary">Subject</Label>
                   <Input
                     id="subject"
-                    placeholder="Project Inquiry..."
+                    placeholder="Project Inquiry"
                     {...register("subject")}
-                    className={`bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-white/30 focus:ring-0 rounded-xl h-12 ${errors.subject ? "border-destructive/50" : ""}`}
+                    className={`bg-transparent border-b border-t-0 border-x-0 border-border rounded-none px-0 focus:border-primary transition-all h-12 shadow-none ${errors.subject ? "border-destructive" : ""}`}
                   />
                   {errors.subject && <p className="text-xs text-destructive mt-1">{errors.subject.message}</p>}
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-gray-300">Message</Label>
+                <div className="space-y-3">
+                  <Label htmlFor="message" className="text-xs font-bold uppercase tracking-widest text-primary">Message</Label>
                   <Textarea
                     id="message"
-                    rows={6}
-                    placeholder="Tell me about your project details..."
+                    rows={4}
+                    placeholder="Tell me about your vision..."
                     {...register("message")}
-                    className={`bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus:border-white/30 focus:ring-0 rounded-xl resize-none ${errors.message ? "border-destructive/50" : ""}`}
+                    className={`bg-transparent border-b border-t-0 border-x-0 border-border rounded-none px-0 focus:border-primary transition-all resize-none shadow-none ${errors.message ? "border-destructive" : ""}`}
                   />
                   {errors.message && <p className="text-xs text-destructive mt-1">{errors.message.message}</p>}
                 </div>
@@ -213,11 +188,11 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full h-12 text-base rounded-xl font-medium bg-white text-black hover:bg-gray-200 transition-all duration-300 group mt-4 hover:shadow-lg hover:shadow-white/10"
+                  className="w-full md:w-auto h-16 px-12 text-sm uppercase tracking-widest rounded-none font-bold bg-primary text-white hover:bg-black transition-all duration-300 group mt-8"
                 >
                   {isSubmitting ? "Sending..." : (
-                    <span className="flex items-center gap-2">
-                      Send Message <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <span className="flex items-center gap-4">
+                      Send Inquiry <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </span>
                   )}
                 </Button>
@@ -232,4 +207,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
 

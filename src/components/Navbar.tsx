@@ -1,191 +1,125 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Download, ExternalLink } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showCVDropdown, setShowCVDropdown] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  // Scroll effect for navbar background
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname, location.hash]);
+
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Explore", path: "/explore" },
+    { name: "About", path: "/about" },
+    { name: "Work", path: "/work" },
+    { name: "Services", path: "/services" },
     { name: "Hobbies", path: "/hobbies" },
     { name: "Contact", path: "/contact" },
   ];
 
-  const cvLinks = [
-    { name: "IT & Development", path: "/cv/it-cv.pdf" },
-    { name: "Video Editing", path: "/cv/video-cv.pdf" },
-    { name: "Model | Content Creator", path: "/cv/model-cv.pdf" },
-  ];
+  const currentPath = `${location.pathname}${location.hash}`;
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-2 md:py-4" : "py-3 md:py-6"
-        }`}
+    <nav
+      className={`fixed left-0 right-0 top-0 z-[9999] transition-all duration-500 ${
+        scrolled || isOpen ? "bg-background py-4 border-b border-border/50" : "bg-transparent py-8"
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-2 md:px-6">
-        <div
-          className={`rounded-2xl px-4 md:px-6 py-3 md:py-4 transition-all duration-300 ${scrolled || isOpen
-            ? "glass-panel bg-black/40 backdrop-blur-md border-white/10"
-            : "bg-transparent border-transparent"
-            }`}
-        >
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link to="/" className="text-2xl font-heading font-extrabold tracking-tight hover:opacity-80 transition-opacity">
-              <span className="text-white">S</span>
-              <span className="text-muted-foreground">S</span>
-              <span className="text-accent">.</span>
-            </Link>
+      <div className="section-container relative z-[10001] !py-0 flex items-center justify-between gap-4">
+        {/* Logo */}
+        <Link to="/" className="shrink-0 text-2xl font-heading font-black tracking-normal transition-opacity hover:opacity-70">
+          SAMARTHA.
+        </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-10">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className="relative group py-2"
-                >
-                  <span className={`text-sm font-medium tracking-wide transition-colors duration-300 ${location.pathname === link.path
-                    ? "text-white"
-                    : "text-muted-foreground group-hover:text-white"
-                    }`}>
-                    {link.name}
-                  </span>
+        {/* Desktop Navigation */}
+        <div className="hidden items-center gap-4 md:flex lg:gap-8 xl:gap-12">
+          {navLinks.map((link) => {
+            const isActive = currentPath === link.path || location.pathname === link.path;
 
-                  {/* Subtle Indicator */}
-                  {location.pathname === link.path && (
-                    <motion.div
-                      layoutId="navbar-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-px bg-white" // Minimalist white line
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
-
-                  {/* Hover Glow */}
-                  <span className="absolute inset-0 -z-10 rounded-lg bg-white/0 group-hover:bg-white/5 transition-colors duration-300" />
-                </Link>
-              ))}
-
-              {/* CV Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => setShowCVDropdown(true)}
-                onMouseLeave={() => setShowCVDropdown(false)}
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`relative px-3 py-3 text-xs uppercase tracking-[0.16em] font-bold transition-colors lg:px-4 lg:tracking-[0.2em] ${
+                  isActive
+                    ? "bg-muted text-foreground before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-primary"
+                    : "hover:text-primary"
+                }`}
               >
-                <button className="flex items-center gap-2 px-4 py-2 ml-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
-                  <span className="text-xs font-semibold tracking-wider text-white uppercase">Resume</span>
-                  <ChevronDown className={`w-3 h-3 text-muted-foreground transition-transform duration-300 ${showCVDropdown ? "rotate-180" : ""}`} />
-                </button>
+                {link.name}
+              </Link>
+            );
+          })}
+        </div>
 
-                <AnimatePresence>
-                  {showCVDropdown && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full right-0 mt-4 w-72 glass-panel p-2 rounded-2xl overflow-hidden shadow-2xl origin-top-right"
-                    >
-                      <div className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
-                        Select Category
-                      </div>
-                      {cvLinks.map((cv, index) => (
-                        <a
-                          key={index}
-                          href={cv.path}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/10 transition-colors group"
-                        >
-                          <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
-                            {cv.name}
-                          </span>
-                          <Download className="w-4 h-4 text-muted-foreground group-hover:text-white transition-colors" />
-                        </a>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="relative z-30 md:hidden p-2 hover:text-primary transition-colors"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+        >
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="fixed inset-0 z-[10000] bg-background md:hidden">
+          <div className="section-container flex min-h-svh flex-col !pb-8 !pt-28">
+            <div className="mb-7 border-b border-border pb-5">
+              <div className="text-[10px] font-bold uppercase tracking-[0.35em] text-primary">
+                Navigation
               </div>
+              <p className="mt-2 text-4xl font-heading leading-none text-foreground">
+                Menu
+              </p>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-white hover:bg-white/10 rounded-full transition-colors"
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+            <div className="flex flex-col gap-3">
+              {navLinks.map((link, index) => {
+                const isActive = currentPath === link.path || location.pathname === link.path;
 
-          {/* Mobile Navigation */}
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="md:hidden overflow-hidden mt-4"
-              >
-                <div className="py-4 space-y-2 border-t border-white/10">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-3 rounded-xl text-base font-medium transition-all ${location.pathname === link.path
-                        ? "bg-white/10 text-white"
-                        : "text-muted-foreground hover:text-white hover:bg-white/5"
-                        }`}
-                    >
+                return (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`group relative flex items-center justify-between overflow-hidden border px-5 py-5 transition duration-300 hover:border-primary/30 hover:bg-white ${
+                      isActive ? "border-primary/30 bg-white text-primary shadow-sm" : "border-border/70 bg-white/55 text-foreground"
+                    }`}
+                  >
+                    <span className="absolute inset-y-0 left-0 w-1 bg-primary opacity-0 transition group-hover:opacity-100" />
+                    {isActive && <span className="absolute inset-y-0 left-0 w-1 bg-primary" />}
+                    <span className="relative text-3xl font-heading font-bold uppercase tracking-normal">
                       {link.name}
-                    </Link>
-                  ))}
+                    </span>
+                    <span className="relative font-mono text-xs font-bold text-muted-foreground transition group-hover:text-primary">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
 
-                  <div className="pt-4 mt-4 border-t border-white/10">
-                    <p className="px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                      Downloads
-                    </p>
-                    {cvLinks.map((cv, index) => (
-                      <a
-                        key={index}
-                        href={cv.path}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-between px-4 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
-                      >
-                        {cv.name}
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            <div className="mt-auto pb-8 pt-8">
+              <p className="border-l border-primary/30 pl-4 text-sm leading-6 text-muted-foreground">
+                Full-stack development, AI integration, and visual storytelling in one portfolio.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </motion.nav>
+      )}
+    </nav>
   );
 };
 

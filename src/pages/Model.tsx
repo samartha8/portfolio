@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Play, X, ExternalLink, Camera, Sparkles, Instagram, Eye } from "lucide-react";
+import { Download, Play, X, ExternalLink, Camera, Images, Instagram, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Model = () => {
@@ -72,10 +72,8 @@ const Model = () => {
   }, []);
 
   return (
-    <div className="min-h-screen px-6 py-32 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-model/10 rounded-full blur-[128px] pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-64 h-64 bg-pink-500/10 rounded-full blur-[100px] pointer-events-none" />
+    <div className="relative min-h-screen overflow-hidden bg-background px-5 py-28 sm:px-6 md:py-32">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(107,112,92,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(107,112,92,0.07)_1px,transparent_1px)] bg-[size:220px_220px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Hero Section */}
@@ -83,47 +81,64 @@ const Model = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="mb-16 grid items-end gap-10 overflow-hidden md:mb-20 lg:grid-cols-[0.95fr_1.05fr]"
         >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-            <Camera className="w-4 h-4 text-model" />
-            <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">Modeling & Content</span>
+          <div className="min-w-0 space-y-8">
+            <div className="inline-flex max-w-full items-center gap-3 border-y border-primary/20 py-3 text-[10px] font-black uppercase tracking-[0.18em] text-primary sm:tracking-[0.32em]">
+              <Camera className="h-4 w-4" />
+              Modeling / Brand / Social
+            </div>
+
+            <div className="space-y-5">
+              <h1 className="max-w-full overflow-hidden text-[3.7rem] font-heading font-black leading-[0.82] tracking-normal text-[#1f2024] min-[420px]:text-[4.4rem] sm:text-[6rem] md:text-[7rem] lg:text-[8rem]">
+                Content
+                <span className="block text-primary">Creation</span>
+              </h1>
+              <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+                Fashion-led visuals, brand collaborations, and social content shaped with presence, composition, and timing.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <a href="/cv/model-cv.pdf" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="h-14 rounded-lg bg-primary px-8 text-sm font-bold uppercase tracking-[0.18em] text-white hover:bg-primary/90"
+                >
+                  <Eye className="mr-2 h-5 w-5" />
+                  View CV
+                </Button>
+              </a>
+              <div className="border-l border-primary/25 pl-4 text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground sm:tracking-[0.24em]">
+                Style / Shoot / Post
+              </div>
+            </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 tracking-tight">
-            Capturing <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-model to-pink-400">
-              Your Vision.
-            </span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
-            Bringing concepts to life through visuals and style. Collaborating with brands to deliver compelling visual narratives.
-          </p>
-        </motion.div>
-
-        {/* View CV Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center mb-24"
-        >
-          <a href="/cv/model-cv.pdf" target="_blank" rel="noopener noreferrer">
-            <Button
-              size="lg"
-              className="bg-model text-white hover:bg-model/90 hover:shadow-lg hover:shadow-model/20 transition-all duration-300 rounded-full px-8 h-12"
-            >
-              <Eye className="mr-2 w-5 h-5" />
-              View CV
-            </Button>
-          </a>
+          <div className="relative mx-auto min-h-[30rem] w-full max-w-sm overflow-hidden rounded-lg bg-black shadow-[0_24px_70px_rgba(20,20,20,0.24)] ring-1 ring-black/10 sm:min-h-[40rem] lg:justify-self-end">
+            <img
+              src="/thumbnails/1.png"
+              alt="Content creation preview"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/20 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-3 p-6 text-white sm:p-8">
+              <div className="text-[10px] font-black uppercase tracking-[0.28em] text-white/60">Visual Presence</div>
+              <div className="max-w-[12ch] text-4xl font-heading leading-[0.9] sm:text-5xl">
+                Frame With Intent
+              </div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/70">
+                Fashion / Brand / Social
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Portfolio Section */}
         <div className="space-y-4 mb-12">
           <div className="flex items-center gap-4 mb-12">
             <div className="w-12 h-12 rounded-2xl bg-model/10 flex items-center justify-center border border-model/20">
-              <Sparkles className="w-6 h-6 text-model" />
+              <Images className="w-6 h-6 text-model" />
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Featured Work</h2>
           </div>
@@ -184,14 +199,17 @@ const Model = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-12 text-center"
+          className="mb-12 grid gap-6 border-y border-primary/20 py-8 md:grid-cols-[0.7fr_1.3fr] md:items-center"
         >
-          <h2 className="text-2xl font-heading font-bold mb-10">Trusted By Brands</h2>
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+          <div>
+            <div className="text-[10px] font-black uppercase tracking-[0.32em] text-primary">Brand Work</div>
+            <h2 className="mt-2 text-4xl font-heading leading-none text-[#1f2024] sm:text-5xl">Collaborations</h2>
+          </div>
+          <div className="flex flex-wrap gap-4 md:justify-end">
             {brands.map((brand, index) => (
               <div
                 key={index}
-                className="px-6 py-3 glass-panel rounded-full text-white/70 font-medium border border-white/5 hover:border-model/30 hover:bg-model/10 hover:text-white transition-all duration-300 cursor-default"
+                className="rounded-lg border border-primary/20 bg-white/70 px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-foreground shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-primary/50 hover:bg-white"
               >
                 {brand}
               </div>
