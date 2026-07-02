@@ -53,7 +53,7 @@ const Footer = () => {
               </div>
 
               <div className="text-sm text-muted-foreground/50 font-mono">
-                © 2025 Samartha Nexus. All Rights Reserved.
+                © 2026 Samartha Nexus. All Rights Reserved.
               </div>
             </div>
           </div>

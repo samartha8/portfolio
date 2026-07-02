@@ -8,6 +8,7 @@ const featuredProjects = [
     label: "Full-Stack / AI",
     title: "CHORI",
     image: "/thumbnails/chori.png",
+    imageClass: "object-contain bg-[#eee8ee]",
     path: "/it",
     className: "md:col-span-4 md:row-span-1 aspect-[16/9]",
   },
@@ -15,6 +16,7 @@ const featuredProjects = [
     label: "Commercials",
     title: "Gym Promo",
     image: "/thumbnails/I.png",
+    imageClass: "object-cover object-center",
     videoSrc: "https://res.cloudinary.com/du8xf30ei/video/upload/v1782963699/GYM_dyn2iq.mp4",
     path: "/video",
     className: "md:col-span-4 md:row-span-2 aspect-[4/5] md:aspect-auto",
@@ -23,6 +25,7 @@ const featuredProjects = [
     label: "Villa ",
     title: "Tavera Ad",
     image: "/thumbnails/V.png",
+    imageClass: "object-cover object-center",
     videoSrc: "https://res.cloudinary.com/du8xf30ei/video/upload/v1782963985/Taveraa_ysflhc.mp4",
     path: "/video",
     className: "md:col-span-4 md:row-span-2 aspect-[4/5] md:aspect-auto",
@@ -31,6 +34,7 @@ const featuredProjects = [
     label: "Cinematic / Short-Form",
     title: "Cafeophillia",
     image: "/thumbnails/VIII.png",
+    imageClass: "object-cover object-center",
     videoSrc: "https://res.cloudinary.com/du8xf30ei/video/upload/v1782963587/Cafe_rbdtgx.mp4",
     path: "/video",
     className: "md:col-span-4 md:row-span-1 aspect-[16/9]",
@@ -59,7 +63,7 @@ const ProjectCard = ({
     <img
       src={project.image}
       alt={project.title}
-      className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+      className={`absolute inset-0 h-full w-full transition duration-700 group-hover:scale-105 ${project.imageClass || "object-cover"}`}
     />
     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/25" />
     <div className="absolute left-4 top-4 rounded-full bg-black/60 px-4 py-2 text-xs font-bold uppercase text-white backdrop-blur-sm">
@@ -218,7 +222,7 @@ const Home = () => {
                 project={project}
                 index={index}
                 onPlay={setActiveProject}
-                className="aspect-[16/10] min-h-[18rem] sm:min-h-[22rem] lg:min-h-[24rem]"
+                className="aspect-[4/5] min-h-[24rem] sm:aspect-[16/10] sm:min-h-[22rem] lg:min-h-[24rem]"
               />
             ))}
           </div>
