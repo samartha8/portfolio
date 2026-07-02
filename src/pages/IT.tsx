@@ -17,7 +17,9 @@ const IT = () => {
       description: "A comprehensive menstrual health ecosystem. Integrating AI-driven insights with high-fidelity tracking and personalized wellness strategies.",
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200",
       thumbnail: "/thumbnails/chori.png",
-      github: "https://github.com/samartha8/chori-app",
+      repositories: [
+        { label: "View Repository", url: "https://github.com/samartha8/chori-app" },
+      ],
       tags: ["React", "AI/ML", "Node.js", "Tailwind"],
       specs: {
         role: "Lead Architect",
@@ -32,7 +34,9 @@ const IT = () => {
       description: "Building the backbone for real-time competitive gaming analytics. A high-concurrency engine optimized for low-latency performance.",
       image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200",
       thumbnail: "/thumbnails/pubg.png",
-      github: "https://github.com/samartha8/quiz-application",
+      repositories: [
+        { label: "View Repository", url: "https://github.com/samartha8/quiz-application" },
+      ],
       tags: ["Java", "SQL", "Swing", "Real-time"],
       specs: {
         role: "Full-Stack Dev",
@@ -42,17 +46,20 @@ const IT = () => {
     },
     {
       id: "03",
-      title: "DIABETES DETECTOR",
-      subtitle: "Healthcare Data Analysis",
-      description: "A precision-focused diagnostic tool using machine learning to map wellness trajectories and predict healthcare needs.",
+      title: "SWEETTRACK",
+      subtitle: "AI Diabetes & Wellness Platform",
+      description: "A mobile-first health app that predicts diabetes risk with ML and supports everyday wellness through meal logging, activity tracking, diet guidance, and secure health insights.",
       image: "/Diabetes.png",
       thumbnail: "/Diabetes.png",
-      github: "#",
-      tags: ["Python", "AI", "Healthcare"],
+      repositories: [
+        { label: "Frontend", url: "https://github.com/samartha8/FYP-SweetTrack-Frontend" },
+        { label: "Backend", url: "https://github.com/samartha8/FYP-SweetTrack-Backend" },
+      ],
+      tags: ["React Native", "Python", "ML", "HealthTech"],
       specs: {
-        role: "Data Architect",
-        stack: "Python/ML",
-        scale: "Research"
+        role: "Full-Stack / ML",
+        stack: "React Native / Node.js / Python / ML",
+        scale: "HealthTech"
       }
     },
   ];
@@ -207,10 +214,19 @@ const IT = () => {
                        </div>
                     </div>
 
-                    <div className="flex gap-6">
-                       <a href={project.github} target="_blank" className="inline-flex items-center gap-2 group/link font-bold text-xs uppercase tracking-widest text-[#6B705C] pt-2">
-                          View Repository <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                       </a>
+                    <div className="flex flex-wrap gap-3">
+                       {project.repositories.map((repository) => (
+                         <a
+                           key={repository.url}
+                           href={repository.url}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="group/link inline-flex min-h-11 max-w-full items-center justify-center gap-2 rounded-lg border border-primary/20 bg-white/70 px-4 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B705C] shadow-sm transition hover:-translate-y-0.5 hover:border-primary/50 hover:bg-white sm:text-xs"
+                         >
+                            <span className="truncate">{repository.label}</span>
+                            <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover/link:translate-x-1" />
+                         </a>
+                       ))}
                     </div>
                  </motion.div>
               </div>
