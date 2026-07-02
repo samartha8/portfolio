@@ -45,8 +45,8 @@ const IT = () => {
       title: "DIABETES DETECTOR",
       subtitle: "Healthcare Data Analysis",
       description: "A precision-focused diagnostic tool using machine learning to map wellness trajectories and predict healthcare needs.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
-      thumbnail: "/thumbnails/onprogress.png",
+      image: "/Diabetes.png",
+      thumbnail: "/Diabetes.png",
       github: "#",
       tags: ["Python", "AI", "Healthcare"],
       specs: {
