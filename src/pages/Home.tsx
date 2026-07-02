@@ -3,6 +3,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Bot, Code2, Film, Palette, Play, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
+const heroVideoSrc = "https://res.cloudinary.com/du8xf30ei/video/upload/v1774934646/IMG_1227_qze1uu.mov";
+const heroPosterSrc = "https://res.cloudinary.com/du8xf30ei/video/upload/so_0/v1774934646/IMG_1227_qze1uu.jpg";
+
 const featuredProjects = [
   {
     label: "Full-Stack / AI",
@@ -145,14 +148,23 @@ const Home = () => {
       {/* 1. HERO SECTION */}
       <section className="relative -mt-20 flex min-h-[100svh] items-center overflow-hidden">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-black">
+          <img
+            src={heroPosterSrc}
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            className="absolute inset-0 h-full w-full object-cover grayscale"
+          />
           <video
-            src="https://res.cloudinary.com/du8xf30ei/video/upload/v1774934646/IMG_1227_qze1uu.mov"
+            src={heroVideoSrc}
+            poster={heroPosterSrc}
             autoPlay
             loop
             muted
+            preload="auto"
             playsInline
-            className="w-full h-full object-cover filter grayscale"
+            className="absolute inset-0 h-full w-full object-cover grayscale"
           />
           <div className="absolute inset-0 bg-black/40 z-10" />
         </div>
