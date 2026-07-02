@@ -21,6 +21,7 @@ const featuredProjects = [
     image: "/thumbnails/I.png",
     imageClass: "object-cover object-center",
     videoSrc: "https://res.cloudinary.com/du8xf30ei/video/upload/v1782963699/GYM_dyn2iq.mp4",
+    videoOrientation: "portrait",
     path: "/video",
     className: "md:col-span-4 md:row-span-2 aspect-[4/5] md:aspect-auto",
   },
@@ -30,6 +31,7 @@ const featuredProjects = [
     image: "/thumbnails/V.png",
     imageClass: "object-cover object-center",
     videoSrc: "https://res.cloudinary.com/du8xf30ei/video/upload/v1782963985/Taveraa_ysflhc.mp4",
+    videoOrientation: "portrait",
     path: "/video",
     className: "md:col-span-4 md:row-span-2 aspect-[4/5] md:aspect-auto",
   },
@@ -39,6 +41,7 @@ const featuredProjects = [
     image: "/thumbnails/VIII.png",
     imageClass: "object-cover object-center",
     videoSrc: "https://res.cloudinary.com/du8xf30ei/video/upload/v1782963587/Cafe_rbdtgx.mp4",
+    videoOrientation: "landscape",
     path: "/video",
     className: "md:col-span-4 md:row-span-1 aspect-[16/9]",
   },
@@ -251,7 +254,11 @@ const Home = () => {
             onClick={() => setActiveProject(null)}
           >
             <motion.div
-              className="relative w-full max-w-5xl overflow-hidden rounded-lg bg-black shadow-2xl ring-1 ring-white/10"
+              className={`relative overflow-hidden rounded-lg bg-black shadow-2xl ring-1 ring-white/10 ${
+                "videoOrientation" in activeProject && activeProject.videoOrientation === "portrait"
+                  ? "aspect-[9/16] max-h-[82svh] w-[min(90vw,28rem)]"
+                  : "aspect-video w-full max-w-5xl"
+              }`}
               initial={{ scale: 0.96, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
@@ -273,7 +280,7 @@ const Home = () => {
                 autoPlay
                 controls
                 playsInline
-                className="aspect-video max-h-[86vh] w-full bg-black object-contain"
+                className="h-full w-full bg-black object-contain"
               />
             </motion.div>
           </motion.div>
@@ -405,7 +412,7 @@ const Home = () => {
                 <a href="https://www.linkedin.com/in/samartha-shakya-032767254/" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-colors">LinkedIn</a>
               </div>
               <div className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-40">
-                © 2024 Samartha Shakya — All rights reserved.
+                © 2026 Samartha Shakya — All rights reserved.
               </div>
             </div>
           </div>
