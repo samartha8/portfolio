@@ -52,7 +52,7 @@ const Services = () => {
               <div className="h-px w-12 bg-[#6B705C]" />
               <p className="text-[10px] uppercase tracking-[0.5em] font-bold text-[#6B705C]">Service Section</p>
             </div>
-            <h1 className="text-7xl md:text-[8vw] font-heading font-black leading-[0.8] tracking-tighter uppercase">
+            <h1 className="max-w-full text-[clamp(4rem,8vw,8rem)] font-heading font-black leading-[0.85] tracking-normal uppercase">
               Services <br /> <span className="italic font-serif normal-case tracking-normal text-[#6B705C]">Work in Progress</span>
             </h1>
             <p className="text-xl md:text-2xl font-light text-muted-foreground leading-relaxed max-w-2xl pt-4">

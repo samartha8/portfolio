@@ -9,9 +9,9 @@ const heroPosterSrc = "https://res.cloudinary.com/du8xf30ei/video/upload/so_0/v1
 const featuredProjects = [
   {
     label: "Full-Stack / AI",
-    title: "CHORI",
-    image: "/thumbnails/chori.png",
-    imageClass: "object-contain bg-[#eee8ee]",
+    title: "SweetTrack",
+    image: "/Diabetes.png",
+    imageClass: "object-cover object-center",
     path: "/it",
     className: "md:col-span-4 md:row-span-1 aspect-[16/9]",
   },
@@ -410,6 +410,7 @@ const Home = () => {
               <div className="mb-4 flex flex-wrap gap-5 text-[10px] font-bold uppercase tracking-widest opacity-80 sm:gap-8">
                 <a href="https://www.instagram.com/_samartha_._/" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-colors">Instagram</a>
                 <a href="https://www.linkedin.com/in/samartha-shakya-032767254/" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-colors">LinkedIn</a>
+                <a href="https://github.com/samartha8/" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-colors">GitHub</a>
               </div>
               <div className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-40">
                 © 2026 Samartha Shakya — All rights reserved.

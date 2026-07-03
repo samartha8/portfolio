@@ -81,7 +81,7 @@ const Model = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-16 grid items-end gap-10 overflow-hidden md:mb-20 lg:grid-cols-[0.95fr_1.05fr]"
+          className="mb-16 grid items-end gap-10 md:mb-20 lg:grid-cols-[0.95fr_1.05fr]"
         >
           <div className="min-w-0 space-y-8">
             <div className="inline-flex max-w-full items-center gap-3 border-y border-primary/20 py-3 text-[10px] font-black uppercase tracking-[0.18em] text-primary sm:tracking-[0.32em]">
@@ -90,9 +90,9 @@ const Model = () => {
             </div>
 
             <div className="space-y-5">
-              <h1 className="max-w-full overflow-hidden text-[3.7rem] font-heading font-black leading-[0.82] tracking-normal text-[#1f2024] min-[420px]:text-[4.4rem] sm:text-[6rem] md:text-[7rem] lg:text-[8rem]">
+              <h1 className="max-w-full text-[clamp(3rem,13vw,6.8rem)] font-heading font-black leading-[0.84] tracking-normal text-[#1f2024] sm:text-[clamp(4rem,8vw,6.8rem)]">
                 Content
-                <span className="block text-primary">Creation</span>
+                <span className="block max-w-full break-words text-primary">Creation</span>
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
                 Fashion-led visuals, brand collaborations, and social content shaped with presence, composition, and timing.
@@ -117,12 +117,12 @@ const Model = () => {
 
           <div className="relative mx-auto min-h-[30rem] w-full max-w-sm overflow-hidden rounded-lg bg-black shadow-[0_24px_70px_rgba(20,20,20,0.24)] ring-1 ring-black/10 sm:min-h-[40rem] lg:justify-self-end">
             <img
-              src="/thumbnails/1.png"
+              src="/thumbnails/model.jpg"
               alt="Content creation preview"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/20 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-3 p-6 text-white sm:p-8">
+            <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-3 p-6 text-black sm:p-8">
               <div className="text-[10px] font-black uppercase tracking-[0.28em] text-white/60">Visual Presence</div>
               <div className="max-w-[12ch] text-4xl font-heading leading-[0.9] sm:text-5xl">
                 Frame With Intent

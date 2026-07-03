@@ -12,40 +12,6 @@ const IT = () => {
   const projects = [
     {
       id: "01",
-      title: "CHORI PLATFORM",
-      subtitle: "Reproductive Wellness & AI",
-      description: "A comprehensive menstrual health ecosystem. Integrating AI-driven insights with high-fidelity tracking and personalized wellness strategies.",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200",
-      thumbnail: "/thumbnails/chori.png",
-      repositories: [
-        { label: "View Repository", url: "https://github.com/samartha8/chori-app" },
-      ],
-      tags: ["React", "AI/ML", "Node.js", "Tailwind"],
-      specs: {
-        role: "Lead Architect",
-        stack: "MERN Stack",
-        scale: "Global"
-      }
-    },
-    {
-      id: "02",
-      title: "QUIZ ENGINE",
-      subtitle: "Competitive Java Logic",
-      description: "Building the backbone for real-time competitive gaming analytics. A high-concurrency engine optimized for low-latency performance.",
-      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200",
-      thumbnail: "/thumbnails/pubg.png",
-      repositories: [
-        { label: "View Repository", url: "https://github.com/samartha8/quiz-application" },
-      ],
-      tags: ["Java", "SQL", "Swing", "Real-time"],
-      specs: {
-        role: "Full-Stack Dev",
-        stack: "Java/MySQL",
-        scale: "Enterprise"
-      }
-    },
-    {
-      id: "03",
       title: "SWEETTRACK",
       subtitle: "AI Diabetes & Wellness Platform",
       description: "A mobile-first health app that predicts diabetes risk with ML and supports everyday wellness through meal logging, activity tracking, diet guidance, and secure health insights.",
@@ -62,6 +28,40 @@ const IT = () => {
         scale: "HealthTech"
       }
     },
+    {
+      id: "02",
+      title: "CHORI PLATFORM",
+      subtitle: "Reproductive Wellness & AI",
+      description: "A comprehensive menstrual health ecosystem. Integrating AI-driven insights with high-fidelity tracking and personalized wellness strategies.",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200",
+      thumbnail: "/thumbnails/chori.png",
+      repositories: [
+        { label: "View Repository", url: "https://github.com/samartha8/chori-app" },
+      ],
+      tags: ["React", "AI/ML", "Node.js", "Tailwind"],
+      specs: {
+        role: "Lead Architect",
+        stack: "MERN Stack",
+        scale: "Global"
+      }
+    },
+    {
+      id: "03",
+      title: "QUIZ ENGINE",
+      subtitle: "Competitive Java Logic",
+      description: "Building the backbone for real-time competitive gaming analytics. A high-concurrency engine optimized for low-latency performance.",
+      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200",
+      thumbnail: "/thumbnails/pubg.png",
+      repositories: [
+        { label: "View Repository", url: "https://github.com/samartha8/quiz-application" },
+      ],
+      tags: ["Java", "SQL", "Swing", "Real-time"],
+      specs: {
+        role: "Full-Stack Dev",
+        stack: "Java/MySQL",
+        scale: "Enterprise"
+      }
+    },
   ];
 
   return (
@@ -70,7 +70,7 @@ const IT = () => {
 
       {/* 1. HERO */}
       <section className="section-container relative !py-0 pb-20 md:pb-28">
-        <div className="grid items-end gap-10 overflow-hidden lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="grid items-end gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ const IT = () => {
             </div>
 
             <div className="space-y-5">
-              <h1 className="max-w-full overflow-hidden text-[3.7rem] font-heading font-black leading-[0.82] tracking-normal text-[#1f2024] min-[420px]:text-[4.4rem] sm:text-[6rem] md:text-[7rem] lg:text-[8rem]">
+              <h1 className="max-w-full text-[clamp(3.2rem,13vw,7rem)] font-heading font-black leading-[0.84] tracking-normal text-[#1f2024] sm:text-[clamp(4rem,8vw,7rem)]">
                 Technical
                 <span className="block text-primary">Builder</span>
               </h1>
@@ -243,7 +243,7 @@ const IT = () => {
             viewport={{ once: true }}
             className="relative z-10 space-y-6"
           >
-            <h2 className="text-5xl md:text-7xl font-heading font-black uppercase tracking-tighter">
+            <h2 className="text-[clamp(3rem,7vw,5.5rem)] font-heading font-black uppercase leading-[0.9] tracking-normal">
               READY TO <br /> DEPLOY?
             </h2>
             <p className="text-lg opacity-80 font-light max-w-xl mx-auto">

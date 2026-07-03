@@ -1,4 +1,4 @@
-import { Instagram, Mail, Linkedin } from "lucide-react";
+import { Github, Instagram, Mail, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -41,6 +41,16 @@ const Footer = () => {
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5 text-gray-400 group-hover/icon:text-white transition-colors" />
+                </a>
+
+                <a
+                  href="https://github.com/samartha8/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/icon"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5 text-gray-400 group-hover/icon:text-white transition-colors" />
                 </a>
 
                 <a

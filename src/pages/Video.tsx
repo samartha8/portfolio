@@ -76,7 +76,7 @@ const Video = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-16 grid items-end gap-10 overflow-hidden md:mb-20 lg:grid-cols-[0.95fr_1.05fr]"
+          className="mb-16 grid items-end gap-10 md:mb-20 lg:grid-cols-[0.95fr_1.05fr]"
         >
           <div className="min-w-0 space-y-8">
             <div className="inline-flex max-w-full items-center gap-3 border-y border-primary/20 py-3 text-[10px] font-black uppercase tracking-[0.18em] text-primary sm:tracking-[0.32em]">
@@ -85,9 +85,9 @@ const Video = () => {
             </div>
 
             <div className="space-y-5">
-              <h1 className="max-w-full overflow-hidden text-[3.7rem] font-heading font-black leading-[0.82] tracking-normal text-[#1f2024] min-[420px]:text-[4.4rem] sm:text-[6rem] md:text-[7rem] lg:text-[8rem]">
+              <h1 className="max-w-full text-[clamp(2.6rem,11vw,7rem)] font-heading font-black leading-[0.86] tracking-normal text-[#1f2024] sm:text-[clamp(4rem,8vw,7rem)]">
                 Visual
-                <span className="block text-primary">Storytelling</span>
+                <span className="block max-w-full break-words text-primary">Storytelling</span>
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
                 Story-first edits, sharp pacing, and cinematic finishing for commercials, content, and branded visuals.

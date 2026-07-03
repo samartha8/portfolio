@@ -33,7 +33,7 @@ const About = () => {
               transition={{ duration: 0.7 }}
               className="md:col-span-7"
             >
-              <h1 className="text-7xl font-heading font-black leading-none tracking-normal text-[#1f2026] sm:text-8xl md:text-[10rem]">
+              <h1 className="max-w-full text-[clamp(4.5rem,12vw,10rem)] font-heading font-black leading-none tracking-normal text-[#1f2026]">
                 About Me.
               </h1>
 
@@ -116,7 +116,7 @@ const About = () => {
           <div className="border-t border-border pt-16 md:pt-20">
             <div className="mb-12 grid gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-end">
               <div>
-                <h2 className="text-6xl font-heading font-black leading-none tracking-normal text-[#3d3e49] sm:text-7xl md:text-9xl">
+                <h2 className="max-w-full text-[clamp(3.5rem,9vw,8rem)] font-heading font-black leading-none tracking-normal text-[#3d3e49]">
                   Toolkit
                 </h2>
                 <p className="mt-4 text-base text-muted-foreground tracking-[0.14em] sm:text-lg sm:tracking-[0.28em] md:text-2xl">

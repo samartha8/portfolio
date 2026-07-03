@@ -40,7 +40,7 @@ const Hobbies = () => {
         <div className="section-container !py-0">
           <div className="mb-14 grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-end">
             <div>
-              <h1 className="text-7xl font-heading font-black leading-none tracking-normal text-[#3d3e49] sm:text-8xl md:text-9xl">
+              <h1 className="max-w-full text-[clamp(4rem,10vw,8rem)] font-heading font-black leading-none tracking-normal text-[#3d3e49]">
                 Hobbies
               </h1>
               <p className="mt-4 text-base text-muted-foreground tracking-[0.12em] sm:text-xl">
