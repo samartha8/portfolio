@@ -16,6 +16,7 @@ const contactSchema = z.object({
   email: z.string().email("Invalid email address").max(255),
   subject: z.string().min(5, "Subject must be at least 5 characters").max(200),
   message: z.string().min(10, "Message must be at least 10 characters").max(1000),
+  website: z.string().max(0).optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -34,6 +35,8 @@ const Contact = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
+    if (data.website) return;
+
     setIsSubmitting(true);
 
     try {
@@ -138,6 +141,14 @@ const Contact = () => {
           >
             <div className="olive-card border-none bg-white p-12 md:p-16">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
+                <input
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] h-px w-px opacity-0"
+                  {...register("website")}
+                />
                 <div className="grid md:grid-cols-2 gap-10">
                   <div className="space-y-3">
                     <Label htmlFor="name" className="text-xs font-bold uppercase tracking-widest text-primary">Name</Label>
