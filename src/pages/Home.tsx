@@ -395,50 +395,6 @@ const Home = () => {
 
       {/* Social feed removed per request */}
 
-      {/* 6. WORLD CUP NOTE */}
-      <section className="relative overflow-hidden bg-white py-20 md:py-28">
-        <div className="section-container !py-0">
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55 }}
-            className="relative overflow-hidden rounded-lg border border-primary/20 bg-[#f0f0ed] p-8 shadow-[0_18px_50px_rgba(40,42,35,0.08)] sm:p-10 md:p-14"
-          >
-            <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full border border-primary/20" />
-            <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-[#74acdf] via-white to-[#74acdf]" />
-
-            <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-end">
-              <div>
-                <div className="mb-4 text-[10px] font-black uppercase tracking-[0.28em] text-primary">
-                  World Cup Clause
-                </div>
-                <h2 className="max-w-3xl text-[clamp(3rem,8vw,7rem)] font-heading font-black uppercase leading-[0.82] tracking-normal text-[#1f2024]">
-                  Argentina
-                  <span className="block text-primary">Department</span>
-                </h2>
-              </div>
-
-              <div className="space-y-6">
-                <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-                  Strategic thinking, dramatic patience, and the occasional belief that every project needs a Messi-level final pass.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  {["La Scaloneta", "Final Pass", "No Penalty Panic"].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-primary/20 bg-white/70 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-primary"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* 8. WATERMARK FOOTER */}
       <footer className="relative overflow-hidden border-t border-border bg-primary py-20 text-white md:py-24">
         <div className="section-container relative z-10">
